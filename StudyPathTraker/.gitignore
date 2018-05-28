@@ -1,0 +1,169 @@
+Last login: Mon May 21 17:54:08 on ttys002
+Rflpz:avianca-lifemiles-ios Rflpz$ cd ..
+Rflpz:Applaudo Rflpz$ ls
+avianca-lifemiles-ios	overview		realestate-ios
+ios-app			pets-and-pets-ios	src
+other			presentation
+Rflpz:Applaudo Rflpz$ git clone https://github.com/Rflpz/Study-Path-Traker-App
+Cloning into 'Study-Path-Traker-App'...
+remote: Counting objects: 34, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 34 (delta 4), reused 34 (delta 4), pack-reused 0
+Unpacking objects: 100% (34/34), done.
+Rflpz:Applaudo Rflpz$ open .
+Rflpz:Applaudo Rflpz$ 
+  [Restored May 24, 2018 at 1:01:53 PM]
+Last login: Thu May 24 13:01:52 on ttys000
+Rflpz:Applaudo Rflpz$ pwd
+/Users/Rflpz/Documents/Applaudo
+Rflpz:Applaudo Rflpz$ ls
+Study-Path-Traker-App	other			presentation
+avianca-lifemiles-ios	overview		realestate-ios
+ios-app			pets-and-pets-ios	src
+Rflpz:Applaudo Rflpz$ cd Study-Path-Traker-App/
+Rflpz:Study-Path-Traker-App Rflpz$ LS
+README.md	StudyPathTraker
+Rflpz:Study-Path-Traker-App Rflpz$ open .
+Rflpz:Study-Path-Traker-App Rflpz$ 
+  [Restored May 24, 2018 at 1:13:45 PM]
+Last login: Thu May 24 13:13:29 on ttys000
+Rflpz:Study-Path-Traker-App Rflpz$ git status
+On branch develop
+Your branch is up-to-date with 'origin/develop'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   StudyPathTraker/StudyPathTraker/Collection/Collection.storyboard
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	StudyPathTraker/.DS_Store
+	StudyPathTraker/StudyPathTraker.xcodeproj/project.xcworkspace/xcuserdata/Rflpz.xcuserdatad/
+	StudyPathTraker/StudyPathTraker.xcodeproj/xcuserdata/Rflpz.xcuserdatad/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Rflpz:Study-Path-Traker-App Rflpz$ git checkout feature/SP-01
+error: pathspec 'feature/SP-01' did not match any file(s) known to git.
+Rflpz:Study-Path-Traker-App Rflpz$ git checkout -b feature/SP-01
+M	StudyPathTraker/StudyPathTraker/Collection/Collection.storyboard
+Switched to a new branch 'feature/SP-01'
+Rflpz:Study-Path-Traker-App Rflpz$ git add .
+Rflpz:Study-Path-Traker-App Rflpz$ git commit -m "UI for collectio, detail, list, description, check list of the items added"
+[feature/SP-01 8ec7258] UI for collectio, detail, list, description, check list of the items added
+ 5 files changed, 410 insertions(+), 3 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 StudyPathTraker/.DS_Store
+ create mode 100644 StudyPathTraker/StudyPathTraker.xcodeproj/project.xcworkspace/xcuserdata/Rflpz.xcuserdatad/UserInterfaceState.xcuserstate
+ create mode 100644 StudyPathTraker/StudyPathTraker.xcodeproj/xcuserdata/Rflpz.xcuserdatad/xcschemes/xcschememanagement.plist
+Rflpz:Study-Path-Traker-App Rflpz$ git push origin feature/SP-01
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 14.03 KiB | 4.68 MiB/s, done.
+Total 14 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+To https://github.com/Rflpz/Study-Path-Traker-App
+ * [new branch]      feature/SP-01 -> feature/SP-01
+Rflpz:Study-Path-Traker-App Rflpz$ 
+  [Restored May 25, 2018 at 10:37:37 AM]
+Last login: Fri May 25 10:37:32 on ttys000
+Rflpz:Study-Path-Traker-App Rflpz$ cd /Users/Rflpz/Downloads 
+Rflpz:Downloads Rflpz$ car CEACAA007
+CEACAA007NRUEO (1).dat   CEACAA007Z9K7K (14).dat  CEACAA007Z9K7K (4).dat
+CEACAA007NRUEO.dat       CEACAA007Z9K7K (15).dat  CEACAA007Z9K7K (5).dat
+CEACAA007Z9K7K (1).dat   CEACAA007Z9K7K (16).dat  CEACAA007Z9K7K (6).dat
+CEACAA007Z9K7K (10).dat  CEACAA007Z9K7K (17).dat  CEACAA007Z9K7K (7).dat
+CEACAA007Z9K7K (11).dat  CEACAA007Z9K7K (18).dat  CEACAA007Z9K7K (8).dat
+CEACAA007Z9K7K (12).dat  CEACAA007Z9K7K (2).dat   CEACAA007Z9K7K (9).dat
+CEACAA007Z9K7K (13).dat  CEACAA007Z9K7K (3).dat   CEACAA007Z9K7K.dat
+Rflpz:Downloads Rflpz$ cd /Users/Rflpz/Documents/Applaudo 
+Rflpz:Applaudo Rflpz$ ls -a
+.			avianca-lifemiles-ios	pets-and-pets-ios
+..			ios-app			presentation
+.DS_Store		other			realestate-ios
+Study-Path-Traker-App	overview		src
+Rflpz:Applaudo Rflpz$ clear
+
+Rflpz:Applaudo Rflpz$ ls -a
+.			avianca-lifemiles-ios	pets-and-pets-ios
+..			ios-app			presentation
+.DS_Store		other			realestate-ios
+Study-Path-Traker-App	overview		src
+Rflpz:Applaudo Rflpz$ cd /Users/Rflpz/Documents/Applaudo/avianca-lifemiles-ios 
+Rflpz:avianca-lifemiles-ios Rflpz$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rflpz:avianca-lifemiles-ios Rflpz$ ls -a
+.				LifeMiles.xcodeproj
+..				LifeMiles.xcworkspace
+.DS_Store			LifeMilesTests
+.git				LifeMilesUITests
+.gitignore			Podfile
+.swiftlint.yml			Podfile.lock
+Architecture Demo		Pods
+Gemfile				fastlane
+Gemfile.lock			sonar-project.properties
+LifeMiles
+Rflpz:avianca-lifemiles-ios Rflpz$ cd /Users/Rflpz/Documents/Applaudo/Study-Path-Traker-App 
+Rflpz:Study-Path-Traker-App Rflpz$ ls
+README.md	StudyPathTraker
+Rflpz:Study-Path-Traker-App Rflpz$ cd StudyPathTraker/
+Rflpz:StudyPathTraker Rflpz$ clear
+
+
+
+Rflpz:StudyPathTraker Rflpz$ vim .gitignore
+Rflpz:StudyPathTraker Rflpz$ vim gitignore 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Xcode
+# 
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+"gitignore" 67L, 1448C
+
