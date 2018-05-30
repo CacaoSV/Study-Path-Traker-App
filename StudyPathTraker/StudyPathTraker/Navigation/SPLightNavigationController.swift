@@ -1,0 +1,42 @@
+//
+//  SPLightNavigationController.swift
+//  StudyPathTraker
+//
+//  Created by Rafael Lopez on 5/30/18.
+//  Copyright © 2018 Jerti. All rights reserved.
+//
+
+import UIKit
+
+class SPLightNavigationController: UINavigationController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+        self.interactivePopGestureRecognizer?.delegate = self
+        self.navigationBar.barTintColor = .white
+        self.navigationBar.isTranslucent = false
+        self.navigationBar.tintColor = .mainPurple
+        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.mainPurple, NSAttributedStringKey.font: UIFont(name: "Avenir", size: 18)!]
+    }
+}
+
+extension SPLightNavigationController: UINavigationControllerDelegate {
+    
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        viewController.addbackItemButton(title: "")
+    }
+}
+
+extension SPLightNavigationController: UIGestureRecognizerDelegate{
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool  {
+        if let _ = self.navigationController as? SPLightNavigationController {
+            if self.topViewController == self.viewControllers.first {
+                return false
+            }
+            return true
+        }
+        return false
+    }
+}
+

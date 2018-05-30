@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="59H-tV-zvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Umn-hW-T3P">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,16 +11,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Light Navigation Controller-->
+        <scene sceneID="nA5-l0-LVI">
+            <objects>
+                <navigationController id="Umn-hW-T3P" customClass="SPLightNavigationController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2rO-OG-Hbs">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="59H-tV-zvc" kind="relationship" relationship="rootViewController" id="h8d-F5-dQ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTF-XZ-LKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="142"/>
+        </scene>
+        <!--Categories-->
         <scene sceneID="t7B-HC-0ds">
             <objects>
-                <viewController id="59H-tV-zvc" sceneMemberID="viewController">
+                <viewController title="Categories" id="59H-tV-zvc" customClass="SPCategoriesViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRs-XC-oNI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mmA-8M-oge">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="CvT-hX-2hC">
                                     <size key="itemSize" width="140" height="165"/>
@@ -29,7 +45,7 @@
                                     <inset key="sectionInset" minX="40" minY="10" maxX="40" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Iyf-6m-SWk">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCollectionCell" id="Iyf-6m-SWk" customClass="SPCategoryCollectionViewCell" customModule="StudyPathTraker" customModuleProvider="target">
                                         <rect key="frame" x="40" y="10" width="140" height="165"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -38,6 +54,7 @@
                                             <subviews>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DJR-GV-nBS">
                                                     <rect key="frame" x="20" y="145" width="100" height="2"/>
+                                                    <color key="progressTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BB1-vx-uRp">
                                                     <rect key="frame" x="16" y="70.333333333333329" width="108" height="24.666666666666671"/>
@@ -57,168 +74,31 @@
                                             <constraint firstItem="DJR-GV-nBS" firstAttribute="leading" secondItem="Iyf-6m-SWk" secondAttribute="leadingMargin" constant="12" id="YY7-BT-lrW"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="BB1-vx-uRp" secondAttribute="trailing" constant="8" id="kbh-mX-S0V"/>
                                         </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nZ3-w5-hy9">
-                                        <rect key="frame" x="195" y="10" width="140" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zsx-aM-xb5">
-                                                    <rect key="frame" x="20" y="145" width="100" height="2"/>
-                                                </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Android Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVm-kg-9jc">
-                                                    <rect key="frame" x="16" y="58" width="108" height="49.333333333333343"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="RVm-kg-9jc" firstAttribute="leading" secondItem="nZ3-w5-hy9" secondAttribute="leadingMargin" constant="8" id="7NJ-aL-R9m"/>
-                                            <constraint firstItem="zsx-aM-xb5" firstAttribute="leading" secondItem="nZ3-w5-hy9" secondAttribute="leadingMargin" constant="12" id="9AW-JP-aSB"/>
-                                            <constraint firstItem="RVm-kg-9jc" firstAttribute="centerY" secondItem="nZ3-w5-hy9" secondAttribute="centerY" id="E1J-FM-95I"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="zsx-aM-xb5" secondAttribute="bottom" constant="10" id="SuY-V4-5Lc"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="RVm-kg-9jc" secondAttribute="trailing" constant="8" id="cup-wm-gln"/>
-                                            <constraint firstItem="RVm-kg-9jc" firstAttribute="centerX" secondItem="nZ3-w5-hy9" secondAttribute="centerX" id="pAX-tL-c69"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="zsx-aM-xb5" secondAttribute="trailing" constant="12" id="xZH-aj-ZhI"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MzR-mH-0Ni">
-                                        <rect key="frame" x="40" y="205" width="140" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q5A-Yd-Ybl">
-                                                    <rect key="frame" x="20" y="145" width="100" height="2"/>
-                                                </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C# Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-sh-ggE">
-                                                    <rect key="frame" x="16" y="70.333333333333329" width="108" height="24.666666666666671"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="M2a-sh-ggE" firstAttribute="leading" secondItem="MzR-mH-0Ni" secondAttribute="leadingMargin" constant="8" id="2Jl-9I-mP5"/>
-                                            <constraint firstItem="Q5A-Yd-Ybl" firstAttribute="leading" secondItem="MzR-mH-0Ni" secondAttribute="leadingMargin" constant="12" id="HmQ-aZ-yip"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="Q5A-Yd-Ybl" secondAttribute="bottom" constant="10" id="MNU-6W-1mK"/>
-                                            <constraint firstItem="M2a-sh-ggE" firstAttribute="centerX" secondItem="MzR-mH-0Ni" secondAttribute="centerX" id="Nki-zz-Ngq"/>
-                                            <constraint firstItem="M2a-sh-ggE" firstAttribute="centerY" secondItem="MzR-mH-0Ni" secondAttribute="centerY" id="aTu-UG-YGY"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Q5A-Yd-Ybl" secondAttribute="trailing" constant="12" id="cBP-fy-e6m"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="M2a-sh-ggE" secondAttribute="trailing" constant="8" id="nYP-fZ-uim"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ntl-Rx-l8K">
-                                        <rect key="frame" x="195" y="205" width="140" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wt9-MM-hOl">
-                                                    <rect key="frame" x="20" y="145" width="100" height="2"/>
-                                                </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C++ Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kec-rI-txS">
-                                                    <rect key="frame" x="16" y="70.333333333333329" width="108" height="24.666666666666671"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="kec-rI-txS" firstAttribute="centerX" secondItem="ntl-Rx-l8K" secondAttribute="centerX" id="4Vs-9g-S3z"/>
-                                            <constraint firstItem="wt9-MM-hOl" firstAttribute="leading" secondItem="ntl-Rx-l8K" secondAttribute="leadingMargin" constant="12" id="SaE-eU-Prk"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="wt9-MM-hOl" secondAttribute="trailing" constant="12" id="V1N-gW-Q4C"/>
-                                            <constraint firstItem="kec-rI-txS" firstAttribute="centerY" secondItem="ntl-Rx-l8K" secondAttribute="centerY" id="d6J-JP-aev"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="wt9-MM-hOl" secondAttribute="bottom" constant="10" id="obh-m2-4p6"/>
-                                            <constraint firstItem="kec-rI-txS" firstAttribute="leading" secondItem="ntl-Rx-l8K" secondAttribute="leadingMargin" constant="8" id="rgX-pN-e5f"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="kec-rI-txS" secondAttribute="trailing" constant="8" id="zVX-oi-c2G"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1CM-BA-ui4">
-                                        <rect key="frame" x="40" y="400" width="140" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-64-7EE">
-                                                    <rect key="frame" x="20" y="145" width="100" height="2"/>
-                                                </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOLID Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFN-b6-9rc">
-                                                    <rect key="frame" x="16" y="70.333333333333329" width="108" height="24.666666666666671"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="aIQ-64-7EE" secondAttribute="trailing" constant="12" id="24V-AG-ZoP"/>
-                                            <constraint firstItem="aIQ-64-7EE" firstAttribute="leading" secondItem="1CM-BA-ui4" secondAttribute="leadingMargin" constant="12" id="Jqe-bT-hx8"/>
-                                            <constraint firstItem="KFN-b6-9rc" firstAttribute="leading" secondItem="1CM-BA-ui4" secondAttribute="leadingMargin" constant="8" id="LMy-x9-TKP"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="KFN-b6-9rc" secondAttribute="trailing" constant="8" id="Lcz-7g-6NZ"/>
-                                            <constraint firstItem="KFN-b6-9rc" firstAttribute="centerY" secondItem="1CM-BA-ui4" secondAttribute="centerY" id="diq-tb-JCR"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="aIQ-64-7EE" secondAttribute="bottom" constant="10" id="kwj-FJ-8Rb"/>
-                                            <constraint firstItem="KFN-b6-9rc" firstAttribute="centerX" secondItem="1CM-BA-ui4" secondAttribute="centerX" id="zO0-cU-W3u"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e3K-Zf-ryQ">
-                                        <rect key="frame" x="195" y="400" width="140" height="165"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="165"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HsK-1H-5uJ">
-                                                    <rect key="frame" x="20" y="145" width="100" height="2"/>
-                                                </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drone Photography Stuffs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6J-KD-cTp">
-                                                    <rect key="frame" x="16" y="45.666666666666657" width="108" height="74"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="O6J-KD-cTp" firstAttribute="centerX" secondItem="e3K-Zf-ryQ" secondAttribute="centerX" id="FAV-ho-1CH"/>
-                                            <constraint firstItem="HsK-1H-5uJ" firstAttribute="leading" secondItem="e3K-Zf-ryQ" secondAttribute="leadingMargin" constant="12" id="SIU-yl-xLP"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="HsK-1H-5uJ" secondAttribute="trailing" constant="12" id="SfM-5i-bBA"/>
-                                            <constraint firstItem="O6J-KD-cTp" firstAttribute="leading" secondItem="e3K-Zf-ryQ" secondAttribute="leadingMargin" constant="8" id="UDq-Ew-ty9"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="HsK-1H-5uJ" secondAttribute="bottom" constant="10" id="e3h-Fc-Yvx"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="O6J-KD-cTp" secondAttribute="trailing" constant="8" id="eku-1e-jHs"/>
-                                            <constraint firstItem="O6J-KD-cTp" firstAttribute="centerY" secondItem="e3K-Zf-ryQ" secondAttribute="centerY" id="fgO-PV-6l1"/>
-                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="BB1-vx-uRp" id="bQO-0F-4SD"/>
+                                            <outlet property="totalProgressView" destination="DJR-GV-nBS" id="nxy-5x-KFD"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mmA-8M-oge" firstAttribute="leading" secondItem="eaB-qg-sAK" secondAttribute="leading" id="3ct-bu-lY0"/>
-                            <constraint firstItem="mmA-8M-oge" firstAttribute="trailing" secondItem="eaB-qg-sAK" secondAttribute="trailing" id="4jn-cz-G4c"/>
-                            <constraint firstItem="mmA-8M-oge" firstAttribute="bottom" secondItem="eaB-qg-sAK" secondAttribute="bottom" id="EBF-xJ-VqK"/>
-                            <constraint firstItem="mmA-8M-oge" firstAttribute="top" secondItem="eaB-qg-sAK" secondAttribute="top" id="iea-FO-jp3"/>
+                            <constraint firstItem="mmA-8M-oge" firstAttribute="trailing" secondItem="eaB-qg-sAK" secondAttribute="trailing" id="XBV-kx-La0"/>
+                            <constraint firstItem="mmA-8M-oge" firstAttribute="leading" secondItem="eaB-qg-sAK" secondAttribute="leading" id="XVH-pf-qYA"/>
+                            <constraint firstItem="mmA-8M-oge" firstAttribute="bottom" secondItem="eaB-qg-sAK" secondAttribute="bottom" id="hlv-vx-hQZ"/>
+                            <constraint firstItem="mmA-8M-oge" firstAttribute="top" secondItem="jRs-XC-oNI" secondAttribute="top" id="wae-0q-8d9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eaB-qg-sAK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5V8-An-i4k"/>
                     <connections>
+                        <outlet property="collectionView" destination="mmA-8M-oge" id="YEx-di-aoB"/>
+                        <outlet property="flowLayout" destination="peW-T6-RfC" id="gvy-N5-XSm"/>
                         <segue destination="XnF-rI-FDD" kind="show" id="kLZ-wT-jfb"/>
                     </connections>
                 </viewController>
+                <customObject id="peW-T6-RfC" customClass="SPCategoriesCollectionViewFlowDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMG-T0-rmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="141.87192118226602"/>
@@ -228,11 +108,11 @@
             <objects>
                 <viewController id="XnF-rI-FDD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98T-F1-UPT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xGg-qn-PrK">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="1sQ-oU-zH5">
@@ -253,6 +133,7 @@
                                                         </label>
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OyB-9p-esP">
                                                             <rect key="frame" x="8" y="96" width="289" height="2"/>
+                                                            <color key="progressTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </progressView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -301,11 +182,11 @@
             <objects>
                 <viewController id="No5-MP-dGH" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdC-ML-WwQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3m-3U-zdd">
-                                <rect key="frame" x="0.0" y="44" width="375" height="673"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="629"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -313,7 +194,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7n-kv-qC4">
-                                <rect key="frame" x="282" y="725" width="85" height="45"/>
+                                <rect key="frame" x="282" y="637" width="85" height="45"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="kxk-mf-x8r"/>
@@ -323,7 +204,7 @@
                                 </state>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-Y0-b9J">
-                                <rect key="frame" x="24" y="746" width="250" height="2"/>
+                                <rect key="frame" x="24" y="658" width="250" height="2"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -353,11 +234,11 @@
             <objects>
                 <viewController id="B9Z-6r-USd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvT-Cs-mJF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-lq-o4C">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="4Rc-VQ-G2V">
