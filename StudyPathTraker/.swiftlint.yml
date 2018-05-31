@@ -109,5 +109,5 @@ custom_rules:
     message: "Please don't explicitly compare to `true`. If you need to compare an optional `Bool`, provide a default value instead, like `?? true` or `?? false`."
     severity: warning
 disabled_rules: # rule identifiers to exclude from running
-  line_length
-  trailing_whitespace
+ - line_length
+ - trailing_whitespace
