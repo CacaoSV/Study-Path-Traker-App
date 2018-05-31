@@ -10,8 +10,8 @@ import UIKit
 
 class SPCategoryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var totalProgressView: UIProgressView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var totalProgressView: UIProgressView!
     let cornerSize = 10
 
     func binding(category: CategoryItem) {

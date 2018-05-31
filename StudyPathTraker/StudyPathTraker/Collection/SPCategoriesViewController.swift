@@ -13,7 +13,7 @@ class SPCategoriesViewController: UIViewController {
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
     private var refreshControl = UIRefreshControl()
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     private var categories = [CategoryItem]()
 
     override func viewWillAppear(_ animated: Bool) {
