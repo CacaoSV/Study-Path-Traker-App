@@ -23,6 +23,7 @@
 		8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */; };
 		8BA06C9620C09B0500A1B56C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9520C09B0500A1B56C /* Item.swift */; };
 		8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */; };
+		8BA06C9B20C0A99000A1B56C /* SPItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */; };
 		8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */; };
 		8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */; };
 		8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DD0320C099280078942E /* SPRoundedView.swift */; };
@@ -47,6 +48,7 @@
 		8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDataSource.swift; sourceTree = "<group>"; };
 		8BA06C9520C09B0500A1B56C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonCellConfiguration.swift; sourceTree = "<group>"; };
+		8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsTableViewDelegate.swift; sourceTree = "<group>"; };
 		8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsViewController.swift; sourceTree = "<group>"; };
 		8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemTableViewCell.swift; sourceTree = "<group>"; };
 		8BD5DD0320C099280078942E /* SPRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */,
 				8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */,
 				8BA06C9520C09B0500A1B56C /* Item.swift */,
+				8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				8BA06C9620C09B0500A1B56C /* Item.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
 				8B94606220BF00E500B9E976 /* CategoryItem.swift in Sources */,
+				8BA06C9B20C0A99000A1B56C /* SPItemsTableViewDelegate.swift in Sources */,
 				8B94606820BF054000B9E976 /* SPBaseColors.swift in Sources */,
 				8B94606520BF04D500B9E976 /* SPLightNavigationController.swift in Sources */,
 				8B94605A20BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift in Sources */,

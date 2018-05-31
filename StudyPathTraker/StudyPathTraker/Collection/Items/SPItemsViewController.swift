@@ -12,7 +12,14 @@ class SPItemsViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
-
+    @IBOutlet private var itemsTableViewDelegate: SPItemsTableViewDelegate! {
+        didSet {
+            itemsTableViewDelegate.selectedIndex = { [weak self] index in
+                // WIP Handle item selection
+            }
+        }
+    }
+    
     // MARK: - Properties
     private var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
     private var refreshControl = UIRefreshControl()

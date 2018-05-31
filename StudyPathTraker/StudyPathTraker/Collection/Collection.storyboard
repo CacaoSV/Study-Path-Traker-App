@@ -144,6 +144,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="rMP-u1-wg5" id="7BM-Cl-iQi"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,11 +159,13 @@
                         <viewLayoutGuide key="safeArea" id="Mk3-Dy-X4U"/>
                     </view>
                     <connections>
+                        <outlet property="itemsTableViewDelegate" destination="rMP-u1-wg5" id="Ihc-Lo-1NE"/>
                         <outlet property="tableView" destination="xGg-qn-PrK" id="d3R-nJ-0PW"/>
                         <segue destination="No5-MP-dGH" kind="show" identifier="showItems" id="nPT-DC-6xe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvr-Ii-qSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="rMP-u1-wg5" customClass="SPItemsTableViewDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="141.87192118226602"/>
         </scene>
