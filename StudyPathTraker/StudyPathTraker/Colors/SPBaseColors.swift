@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    
+
     static var mainPurple: UIColor {
         return #colorLiteral(red: 0.3411764706, green: 0.368627451, blue: 0.9568627451, alpha: 1)
     }
