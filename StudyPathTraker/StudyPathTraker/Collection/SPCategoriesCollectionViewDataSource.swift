@@ -9,18 +9,16 @@
 import UIKit
 
 class SPCategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
+
     private let categoryCellReuseIdentifier: String = "CategoryCollectionCell"
     public var categories = [CategoryItem]()
-    
-    override init() {
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellReuseIdentifier,
                                                             for: indexPath) as? SPCategoryCollectionViewCell else {
                                                                 return UICollectionViewCell()
@@ -30,5 +28,5 @@ class SPCategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource
         cell.customizeCell()
         return cell
     }
-    
+
 }
