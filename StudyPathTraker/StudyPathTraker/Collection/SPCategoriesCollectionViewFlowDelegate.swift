@@ -11,11 +11,19 @@ import UIKit
 
 class SPCategoriesCollectionViewFlowDelegate: NSObject, UICollectionViewDelegateFlowLayout {
     
-    private let categoryEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    private let cellHeight = 165.0
-    private let cellWidth = 140.0
-    private let itemsPerRow = 2.0
-    private let headerHeight = 10
+    private var categoryEdgeInsets: UIEdgeInsets
+    private var cellHeight: Double
+    private var cellWidth: Double
+    private var itemsPerRow: Double
+    private var headerHeight: CGFloat
+    
+    init(cellHeight: Double, cellWidth: Double, itemsPerRow: Double, headerHeight: CGFloat, categoryEdgeInsets: UIEdgeInsets ) {
+        self.cellHeight = cellHeight
+        self.cellWidth = cellWidth
+        self.itemsPerRow = itemsPerRow
+        self.headerHeight = headerHeight
+        self.categoryEdgeInsets = categoryEdgeInsets
+    }
     
     public var selectedItemAction: ((_ itemPosition: Int) -> Void)?
     
@@ -29,9 +37,7 @@ class SPCategoriesCollectionViewFlowDelegate: NSObject, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let itemSelected = selectedItemAction {
-            itemSelected(indexPath.row)
-        }
+        selectedItemAction?(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -44,7 +50,7 @@ class SPCategoriesCollectionViewFlowDelegate: NSObject, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let collectionViewWidth = collectionView.frame.size.width
-        return CGSize(width: Int(collectionViewWidth), height: headerHeight)
+        return CGSize(width: collectionViewWidth, height: headerHeight)
     }
     
 }

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Light Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="nA5-l0-LVI">
             <objects>
-                <navigationController id="Umn-hW-T3P" customClass="SPLightNavigationController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Umn-hW-T3P" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="2rO-OG-Hbs">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,11 +94,9 @@
                     <navigationItem key="navigationItem" id="5V8-An-i4k"/>
                     <connections>
                         <outlet property="collectionView" destination="mmA-8M-oge" id="YEx-di-aoB"/>
-                        <outlet property="flowLayout" destination="peW-T6-RfC" id="gvy-N5-XSm"/>
                         <segue destination="XnF-rI-FDD" kind="show" id="kLZ-wT-jfb"/>
                     </connections>
                 </viewController>
-                <customObject id="peW-T6-RfC" customClass="SPCategoriesCollectionViewFlowDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMG-T0-rmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="141.87192118226602"/>

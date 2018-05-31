@@ -1,5 +1,5 @@
 //
-//  SPLightNavigationController.swift
+//  UINavigationController+Extensions.swift
 //  StudyPathTraker
 //
 //  Created by Rafael Lopez on 5/30/18.
@@ -8,29 +8,26 @@
 
 import UIKit
 
-class SPLightNavigationController: UINavigationController {
+extension UINavigationController {
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
+        self.delegate = self as? UINavigationControllerDelegate
         self.interactivePopGestureRecognizer?.delegate = self
-        self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = false
-        self.navigationBar.tintColor = .mainPurple
         self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.mainPurple, NSAttributedStringKey.font: UIFont(name: "Avenir", size: 18)!]
     }
 }
 
-extension SPLightNavigationController: UINavigationControllerDelegate {
-    
+extension UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         viewController.addbackItemButton(title: "")
     }
+    
 }
 
-extension SPLightNavigationController: UIGestureRecognizerDelegate{
+extension UINavigationController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool  {
-        if let _ = self.navigationController as? SPLightNavigationController {
+        if let _ = self.navigationController {
             if self.topViewController == self.viewControllers.first {
                 return false
             }
