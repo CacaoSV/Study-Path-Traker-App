@@ -36,7 +36,7 @@ extension SPLightNavigationController: UINavigationControllerDelegate {
 
 extension SPLightNavigationController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if self.navigationController != nil {
+        if self.navigationController == nil {
             if self.topViewController == self.viewControllers.first {
                 return false
             }
