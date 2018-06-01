@@ -78,17 +78,17 @@
                     <navigationItem key="navigationItem" id="5V8-An-i4k"/>
                     <connections>
                         <outlet property="collectionView" destination="mmA-8M-oge" id="YEx-di-aoB"/>
-                        <segue destination="XnF-rI-FDD" kind="show" id="kLZ-wT-jfb"/>
+                        <segue destination="XnF-rI-FDD" kind="show" identifier="showItems" id="kLZ-wT-jfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMG-T0-rmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="141.87192118226602"/>
         </scene>
-        <!--View Controller-->
+        <!--Items View Controller-->
         <scene sceneID="ENQ-i1-hQ1">
             <objects>
-                <viewController id="XnF-rI-FDD" sceneMemberID="viewController">
+                <viewController id="XnF-rI-FDD" customClass="SPItemsViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98T-F1-UPT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,14 +97,14 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="1sQ-oU-zH5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemCellIdentifier" rowHeight="130" id="1sQ-oU-zH5" customClass="SPItemTableViewCell" customModule="StudyPathTraker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1sQ-oU-zH5" id="2NC-dl-UsG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-9i-thr">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-9i-thr" customClass="SPRoundedView" customModule="StudyPathTraker" customModuleProvider="target">
                                                     <rect key="frame" x="35" y="11" width="305" height="108"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Core Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-od-zUm">
@@ -138,8 +138,15 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="jQ2-9i-thr" secondAttribute="trailing" constant="20" id="z9O-e3-Qoc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="DQj-od-zUm" id="v0V-as-s3G"/>
+                                            <outlet property="totalProgressView" destination="OyB-9p-esP" id="cGD-0J-31y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="rMP-u1-wg5" id="7BM-Cl-iQi"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,10 +159,13 @@
                         <viewLayoutGuide key="safeArea" id="Mk3-Dy-X4U"/>
                     </view>
                     <connections>
-                        <segue destination="No5-MP-dGH" kind="show" id="nPT-DC-6xe"/>
+                        <outlet property="itemsTableViewDelegate" destination="rMP-u1-wg5" id="Ihc-Lo-1NE"/>
+                        <outlet property="tableView" destination="xGg-qn-PrK" id="d3R-nJ-0PW"/>
+                        <segue destination="No5-MP-dGH" kind="show" identifier="showItems" id="nPT-DC-6xe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvr-Ii-qSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="rMP-u1-wg5" customClass="SPItemsTableViewDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="141.87192118226602"/>
         </scene>
@@ -230,7 +240,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avF-4A-U9e">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avF-4A-U9e" customClass="SPRoundedView" customModule="StudyPathTraker" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="7.9999999999999964" width="359" height="53.666666666666657"/>
                                                     <subviews>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-Lu-H02">

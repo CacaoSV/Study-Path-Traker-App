@@ -10,9 +10,9 @@ import UIKit
 
 class SPCategoryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var totalProgressView: UIProgressView!
-    let cornerSize = 10
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var totalProgressView: UIProgressView!
+    private let cornerSize: CGFloat = 8.0
 
     func binding(category: CategoryItem) {
         nameLabel.text = category.name
@@ -20,7 +20,7 @@ class SPCategoryCollectionViewCell: UICollectionViewCell {
     }
 
     func customizeCell() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = cornerSize
         clipsToBounds = true
     }
 }
