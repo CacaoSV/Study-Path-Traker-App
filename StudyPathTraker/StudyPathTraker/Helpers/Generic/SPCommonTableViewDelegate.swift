@@ -1,15 +1,15 @@
 //
-//  SPItemsTableViewDelegate.swift
+//  SPCommonTableViewDelegate.swift
 //  StudyPathTraker
 //
-//  Created by Rafael Lopez on 5/31/18.
+//  Created by Rafael Lopez on 6/4/18.
 //  Copyright © 2018 Jerti. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SPItemsTableViewDelegate: NSObject, UITableViewDelegate {
+class SPCommonTableViewDelegate: NSObject, UITableViewDelegate {
 
     public var selectedIndex: ((_ index: Int) -> Void)?
 

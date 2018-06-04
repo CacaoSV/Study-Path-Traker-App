@@ -23,7 +23,13 @@
 		8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */; };
 		8BA06C9620C09B0500A1B56C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9520C09B0500A1B56C /* Item.swift */; };
 		8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */; };
-		8BA06C9B20C0A99000A1B56C /* SPItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */; };
+		8BA06C9E20C5B7DB00A1B56C /* SPDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9D20C5B7DB00A1B56C /* SPDetailViewController.swift */; };
+		8BA06CA120C5BB6000A1B56C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BA06CA020C5BB6000A1B56C /* WebKit.framework */; };
+		8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA220C5C09A00A1B56C /* SPDetailWebViewDelegate.swift */; };
+		8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */; };
+		8BA06CA720C5D8D200A1B56C /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA620C5D8D200A1B56C /* Milestone.swift */; };
+		8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */; };
+		8BA06CAF20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */; };
 		8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */; };
 		8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */; };
 		8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DD0320C099280078942E /* SPRoundedView.swift */; };
@@ -48,7 +54,13 @@
 		8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDataSource.swift; sourceTree = "<group>"; };
 		8BA06C9520C09B0500A1B56C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonCellConfiguration.swift; sourceTree = "<group>"; };
-		8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsTableViewDelegate.swift; sourceTree = "<group>"; };
+		8BA06C9D20C5B7DB00A1B56C /* SPDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDetailViewController.swift; sourceTree = "<group>"; };
+		8BA06CA020C5BB6000A1B56C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8BA06CA220C5C09A00A1B56C /* SPDetailWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDetailWebViewDelegate.swift; sourceTree = "<group>"; };
+		8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListViewController.swift; sourceTree = "<group>"; };
+		8BA06CA620C5D8D200A1B56C /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
+		8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListTableViewCell.swift; sourceTree = "<group>"; };
+		8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDelegate.swift; sourceTree = "<group>"; };
 		8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsViewController.swift; sourceTree = "<group>"; };
 		8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemTableViewCell.swift; sourceTree = "<group>"; };
 		8BD5DD0320C099280078942E /* SPRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedView.swift; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA06CA120C5BB6000A1B56C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +83,7 @@
 			children = (
 				31AADF5220AF4C4B003B81DC /* StudyPathTraker */,
 				31AADF5120AF4C4B003B81DC /* Products */,
+				8BA06C9F20C5BB6000A1B56C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				31AADF6820AF4EA2003B81DC /* Collection.storyboard */,
+				8BA06C9C20C5B7B900A1B56C /* Detail */,
 				8BA06C9720C09B8800A1B56C /* CheckList */,
 				8BD5DCFC20C097B30078942E /* Items */,
 				8BD5DCFB20C097A20078942E /* Categories */,
@@ -147,6 +162,7 @@
 			children = (
 				8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */,
 				8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */,
+				8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -154,8 +170,28 @@
 		8BA06C9720C09B8800A1B56C /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */,
+				8BA06CA620C5D8D200A1B56C /* Milestone.swift */,
+				8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */,
 			);
 			path = CheckList;
+			sourceTree = "<group>";
+		};
+		8BA06C9C20C5B7B900A1B56C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06C9D20C5B7DB00A1B56C /* SPDetailViewController.swift */,
+				8BA06CA220C5C09A00A1B56C /* SPDetailWebViewDelegate.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		8BA06C9F20C5BB6000A1B56C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06CA020C5BB6000A1B56C /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8BD5DCFB20C097A20078942E /* Categories */ = {
@@ -176,7 +212,6 @@
 				8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */,
 				8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */,
 				8BA06C9520C09B0500A1B56C /* Item.swift */,
-				8BA06C9A20C0A99000A1B56C /* SPItemsTableViewDelegate.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -280,20 +315,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */,
+				8BA06C9E20C5B7DB00A1B56C /* SPDetailViewController.swift in Sources */,
 				8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */,
 				8B94606020BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift in Sources */,
 				8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */,
 				8B94605E20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift in Sources */,
 				31AADF5420AF4C4B003B81DC /* AppDelegate.swift in Sources */,
 				8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */,
+				8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */,
+				8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */,
 				8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */,
 				8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */,
 				8BA06C9620C09B0500A1B56C /* Item.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
+				8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */,
 				8B94606220BF00E500B9E976 /* CategoryItem.swift in Sources */,
-				8BA06C9B20C0A99000A1B56C /* SPItemsTableViewDelegate.swift in Sources */,
+				8BA06CAF20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift in Sources */,
 				8B94606820BF054000B9E976 /* SPBaseColors.swift in Sources */,
 				8B94606520BF04D500B9E976 /* SPLightNavigationController.swift in Sources */,
+				8BA06CA720C5D8D200A1B56C /* Milestone.swift in Sources */,
 				8B94605A20BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

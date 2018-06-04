@@ -10,4 +10,5 @@ struct Item {
     let name: String
     let progress: Float
     let url: String
+    let milestones: [Milestone]
 }

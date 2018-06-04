@@ -12,10 +12,11 @@ class SPItemsViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private var itemsTableViewDelegate: SPItemsTableViewDelegate! {
+    @IBOutlet private var itemsTableViewDelegate: SPCommonTableViewDelegate! {
         didSet {
             itemsTableViewDelegate.selectedIndex = { [weak self] index in
-                // WIP Handle item selection
+                self?.selectedItem = self?.items?[index]
+                self?.performSegue(withIdentifier: Segue.showDetail.rawValue, sender: nil)
             }
         }
     }
@@ -32,6 +33,12 @@ class SPItemsViewController: UIViewController {
     }
     private let cellConfiguration = SPCommonCellConfiguration(identifier: "ItemCellIdentifier", height: 130.0)
 
+    private enum Segue: String {
+        case showDetail
+    }
+
+    private var selectedItem: Item?
+
     // MARK: - View Configuration
 
     override func viewDidLoad() {
@@ -40,6 +47,14 @@ class SPItemsViewController: UIViewController {
         view.backgroundColor = .mainBackground
         configureTableView()
         getItems()
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailViewController = segue.destination  as? SPDetailViewController {
+            detailViewController.item = selectedItem
+        }
     }
 
     // MARK: - Functions
@@ -62,8 +77,17 @@ class SPItemsViewController: UIViewController {
 
     @objc private func getItems() {
         refreshControl.beginRefreshing()
-        items = [Item(name: "Configure fork", progress: 1.0, url: "https://help.github.com/articles/configuring-a-remote-for-a-fork/"),
-                 Item(name: "Sync fork", progress: 0.5, url: "https://help.github.com/articles/syncing-a-fork/")
+        let milestones = [Milestone(isDone: false, name: "Read full article"),
+                          Milestone(isDone: true, name: "Localize keywords")
+        ]
+        items = [Item(name: "Configure fork",
+                      progress: 1.0,
+                      url: "https://help.github.com/articles/configuring-a-remote-for-a-fork/",
+                      milestones: milestones),
+                 Item(name: "Sync fork",
+                      progress: 0.5,
+                      url: "https://help.github.com/articles/syncing-a-fork/",
+                      milestones: milestones)
         ]
     }
 }

@@ -161,25 +161,25 @@
                     <connections>
                         <outlet property="itemsTableViewDelegate" destination="rMP-u1-wg5" id="Ihc-Lo-1NE"/>
                         <outlet property="tableView" destination="xGg-qn-PrK" id="d3R-nJ-0PW"/>
-                        <segue destination="No5-MP-dGH" kind="show" identifier="showItems" id="nPT-DC-6xe"/>
+                        <segue destination="No5-MP-dGH" kind="show" identifier="showDetail" id="nPT-DC-6xe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvr-Ii-qSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="rMP-u1-wg5" customClass="SPItemsTableViewDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
+                <customObject id="rMP-u1-wg5" customClass="SPCommonTableViewDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="141.87192118226602"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="7tR-1y-MaW">
             <objects>
-                <viewController id="No5-MP-dGH" sceneMemberID="viewController">
+                <viewController id="No5-MP-dGH" customClass="SPDetailViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdC-ML-WwQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3m-3U-zdd">
                                 <rect key="frame" x="0.0" y="44" width="375" height="673"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -194,50 +194,65 @@
                                 <state key="normal" title="CHECK LIST">
                                     <color key="titleColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addNewCheckListItem:" destination="No5-MP-dGH" eventType="touchUpInside" id="Ahf-VH-OX2"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-Y0-b9J">
                                 <rect key="frame" x="24" y="746" width="250" height="2"/>
+                                <color key="tintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="progressTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TFZ-nZ-5eC">
+                                <rect key="frame" x="177" y="396" width="20" height="20"/>
+                                <color key="tintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="D7n-kv-qC4" firstAttribute="leading" secondItem="ALx-Y0-b9J" secondAttribute="trailing" constant="8" symbolic="YES" id="5Ob-P6-98F"/>
+                            <constraint firstItem="TFZ-nZ-5eC" firstAttribute="centerY" secondItem="HdC-ML-WwQ" secondAttribute="centerY" id="BbQ-wk-iyy"/>
                             <constraint firstItem="Z3m-3U-zdd" firstAttribute="top" secondItem="2cr-L4-C3n" secondAttribute="top" id="C1h-s5-822"/>
                             <constraint firstItem="2cr-L4-C3n" firstAttribute="trailing" secondItem="D7n-kv-qC4" secondAttribute="trailing" constant="8" id="emi-ix-urS"/>
                             <constraint firstItem="2cr-L4-C3n" firstAttribute="bottom" secondItem="ALx-Y0-b9J" secondAttribute="bottom" constant="30" id="gix-ne-jO9"/>
                             <constraint firstItem="D7n-kv-qC4" firstAttribute="top" secondItem="Z3m-3U-zdd" secondAttribute="bottom" constant="8" id="hih-Zb-o8V"/>
                             <constraint firstItem="Z3m-3U-zdd" firstAttribute="leading" secondItem="2cr-L4-C3n" secondAttribute="leading" id="kHX-et-JNs"/>
                             <constraint firstItem="ALx-Y0-b9J" firstAttribute="leading" secondItem="HdC-ML-WwQ" secondAttribute="leadingMargin" constant="8" id="kz5-Ud-ywj"/>
+                            <constraint firstItem="TFZ-nZ-5eC" firstAttribute="centerX" secondItem="HdC-ML-WwQ" secondAttribute="centerX" id="mwS-rh-m1z"/>
                             <constraint firstItem="Z3m-3U-zdd" firstAttribute="trailing" secondItem="2cr-L4-C3n" secondAttribute="trailing" id="rO2-jF-X9l"/>
                             <constraint firstItem="2cr-L4-C3n" firstAttribute="bottom" secondItem="D7n-kv-qC4" secondAttribute="bottom" constant="8" id="z2a-Oh-5vr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2cr-L4-C3n"/>
                     </view>
                     <connections>
-                        <segue destination="B9Z-6r-USd" kind="show" id="8ZE-sI-RfQ"/>
+                        <outlet property="activityIndicatorView" destination="TFZ-nZ-5eC" id="eH8-Y7-sa4"/>
+                        <outlet property="totalProgressView" destination="ALx-Y0-b9J" id="cie-HP-C1o"/>
+                        <outlet property="webView" destination="Z3m-3U-zdd" id="Arg-u5-DVi"/>
+                        <segue destination="B9Z-6r-USd" kind="show" identifier="showCheckList" id="8ZE-sI-RfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21x-2f-Veb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1693.5999999999999" y="141.87192118226602"/>
         </scene>
-        <!--View Controller-->
+        <!--Check List View Controller-->
         <scene sceneID="4Eq-T8-n6q">
             <objects>
-                <viewController id="B9Z-6r-USd" sceneMemberID="viewController">
+                <viewController id="B9Z-6r-USd" customClass="SPCheckListViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvT-Cs-mJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-lq-o4C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-lq-o4C">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="4Rc-VQ-G2V">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CheckListCellIdentifier" rowHeight="70" id="4Rc-VQ-G2V" customClass="SPCheckListTableViewCell" customModule="StudyPathTraker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Rc-VQ-G2V" id="3I0-1f-wj4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avF-4A-U9e" customClass="SPRoundedView" customModule="StudyPathTraker" customModuleProvider="target">
@@ -273,8 +288,16 @@
                                                 <constraint firstAttribute="bottom" secondItem="avF-4A-U9e" secondAttribute="bottom" constant="8" id="yXL-XP-aZk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="isReadySwitch" destination="Ute-Lu-H02" id="e2f-Tl-TcY"/>
+                                            <outlet property="nameMilestoneLabel" destination="MgJ-ty-6mr" id="s60-DI-a4N"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="VDw-Vu-2aX" id="E76-0w-6fc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -286,7 +309,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vzt-cl-qVc"/>
                     </view>
+                    <connections>
+                        <outlet property="checkListTableViewDelegate" destination="VDw-Vu-2aX" id="gMq-bD-cBJ"/>
+                        <outlet property="tableView" destination="rJa-lq-o4C" id="ekd-DX-hYJ"/>
+                    </connections>
                 </viewController>
+                <customObject id="VDw-Vu-2aX" customClass="SPCommonTableViewDelegate" customModule="StudyPathTraker" customModuleProvider="target"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKr-gL-3du" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2461.5999999999999" y="141.87192118226602"/>
