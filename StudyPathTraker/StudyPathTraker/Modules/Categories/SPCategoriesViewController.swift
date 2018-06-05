@@ -10,10 +10,6 @@ import UIKit
 
 class SPCategoriesViewController: UIViewController {
 
-    private enum Segue: String {
-        case showItems
-    }
-
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
     private var refreshControl = UIRefreshControl()
@@ -48,7 +44,7 @@ class SPCategoriesViewController: UIViewController {
             flowLayout = SPCategoriesCollectionViewFlowDelegate(configuration: configuration)
         flowLayout?.selectedItemAction = { [weak self] index in
             // WIP Handle item selection
-            self?.performSegue(withIdentifier: Segue.showItems.rawValue, sender: nil)
+            self?.performSegue(withIdentifier: CategoriesSegue.showItems.rawValue, sender: nil)
         }
         collectionView.dataSource = categoriesDataSource
         collectionView.delegate = flowLayout

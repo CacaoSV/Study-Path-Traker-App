@@ -16,7 +16,7 @@ class SPItemsViewController: UIViewController {
         didSet {
             itemsTableViewDelegate.selectedIndex = { [weak self] index in
                 self?.selectedItem = self?.items?[index]
-                self?.performSegue(withIdentifier: Segue.showDetail.rawValue, sender: nil)
+                self?.performSegue(withIdentifier: ItemsSegue.showDetail.rawValue, sender: nil)
             }
         }
     }
@@ -32,11 +32,6 @@ class SPItemsViewController: UIViewController {
         }
     }
     private let cellConfiguration = SPCommonCellConfiguration(identifier: "ItemCellIdentifier", height: 130.0)
-
-    private enum Segue: String {
-        case showDetail
-    }
-
     private var selectedItem: Item?
 
     // MARK: - View Configuration

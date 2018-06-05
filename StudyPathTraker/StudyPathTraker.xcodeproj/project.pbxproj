@@ -30,6 +30,8 @@
 		8BA06CA720C5D8D200A1B56C /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA620C5D8D200A1B56C /* Milestone.swift */; };
 		8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */; };
 		8BA06CAF20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */; };
+		8BA06CB720C6D65800A1B56C /* SPCategoriesSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CB620C6D65800A1B56C /* SPCategoriesSegues.swift */; };
+		8BA06CB920C6D6F600A1B56C /* SPItemsSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CB820C6D6F600A1B56C /* SPItemsSegues.swift */; };
 		8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */; };
 		8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */; };
 		8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DD0320C099280078942E /* SPRoundedView.swift */; };
@@ -61,6 +63,8 @@
 		8BA06CA620C5D8D200A1B56C /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListTableViewCell.swift; sourceTree = "<group>"; };
 		8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDelegate.swift; sourceTree = "<group>"; };
+		8BA06CB620C6D65800A1B56C /* SPCategoriesSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesSegues.swift; sourceTree = "<group>"; };
+		8BA06CB820C6D6F600A1B56C /* SPItemsSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsSegues.swift; sourceTree = "<group>"; };
 		8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsViewController.swift; sourceTree = "<group>"; };
 		8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemTableViewCell.swift; sourceTree = "<group>"; };
 		8BD5DD0320C099280078942E /* SPRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedView.swift; sourceTree = "<group>"; };
@@ -98,11 +102,9 @@
 		31AADF5220AF4C4B003B81DC /* StudyPathTraker */ = {
 			isa = PBXGroup;
 			children = (
-				8BA06C9120C09A2200A1B56C /* Helpers */,
+				8BA06CB120C6D41600A1B56C /* Models */,
+				8BA06CB020C6D40F00A1B56C /* Modules */,
 				8BD5DD0520C0992D0078942E /* Custom Views */,
-				8B3C183A20C04F9C006A7D8A /* Extensions */,
-				8B94606620BF051500B9E976 /* Colors */,
-				31AADF6620AF4E70003B81DC /* Collection */,
 				31AADF6520AF4E5D003B81DC /* Navigation */,
 				31AADF5320AF4C4B003B81DC /* AppDelegate.swift */,
 				31AADF5A20AF4C4C003B81DC /* Assets.xcassets */,
@@ -121,16 +123,12 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		31AADF6620AF4E70003B81DC /* Collection */ = {
+		31AADF6620AF4E70003B81DC /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				31AADF6820AF4EA2003B81DC /* Collection.storyboard */,
-				8BA06C9C20C5B7B900A1B56C /* Detail */,
-				8BA06C9720C09B8800A1B56C /* CheckList */,
-				8BD5DCFC20C097B30078942E /* Items */,
-				8BD5DCFB20C097A20078942E /* Categories */,
 			);
-			path = Collection;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8B3C183A20C04F9C006A7D8A /* Extensions */ = {
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */,
-				8BA06CA620C5D8D200A1B56C /* Milestone.swift */,
 				8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */,
 			);
 			path = CheckList;
@@ -194,14 +191,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8BA06CB020C6D40F00A1B56C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06C9C20C5B7B900A1B56C /* Detail */,
+				8BA06C9720C09B8800A1B56C /* CheckList */,
+				8BD5DCFC20C097B30078942E /* Items */,
+				8BD5DCFB20C097A20078942E /* Categories */,
+				31AADF6620AF4E70003B81DC /* Main */,
+				8B3C183A20C04F9C006A7D8A /* Extensions */,
+				8BA06C9120C09A2200A1B56C /* Helpers */,
+				8B94606620BF051500B9E976 /* Colors */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8BA06CB120C6D41600A1B56C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06CB420C6D46300A1B56C /* ChekList */,
+				8BA06CB320C6D45600A1B56C /* Items */,
+				8BA06CB220C6D44400A1B56C /* Categories */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8BA06CB220C6D44400A1B56C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8B94606120BF00E500B9E976 /* CategoryItem.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		8BA06CB320C6D45600A1B56C /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06C9520C09B0500A1B56C /* Item.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		8BA06CB420C6D46300A1B56C /* ChekList */ = {
+			isa = PBXGroup;
+			children = (
+				8BA06CA620C5D8D200A1B56C /* Milestone.swift */,
+			);
+			path = ChekList;
+			sourceTree = "<group>";
+		};
 		8BD5DCFB20C097A20078942E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */,
-				8B94606120BF00E500B9E976 /* CategoryItem.swift */,
 				8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */,
 				8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */,
 				8B94605F20BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift */,
+				8BA06CB620C6D65800A1B56C /* SPCategoriesSegues.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -211,7 +257,7 @@
 			children = (
 				8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */,
 				8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */,
-				8BA06C9520C09B0500A1B56C /* Item.swift */,
+				8BA06CB820C6D6F600A1B56C /* SPItemsSegues.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -320,6 +366,7 @@
 				8B94606020BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift in Sources */,
 				8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */,
 				8B94605E20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift in Sources */,
+				8BA06CB720C6D65800A1B56C /* SPCategoriesSegues.swift in Sources */,
 				31AADF5420AF4C4B003B81DC /* AppDelegate.swift in Sources */,
 				8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */,
 				8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */,
@@ -334,6 +381,7 @@
 				8B94606820BF054000B9E976 /* SPBaseColors.swift in Sources */,
 				8B94606520BF04D500B9E976 /* SPLightNavigationController.swift in Sources */,
 				8BA06CA720C5D8D200A1B56C /* Milestone.swift in Sources */,
+				8BA06CB920C6D6F600A1B56C /* SPItemsSegues.swift in Sources */,
 				8B94605A20BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
