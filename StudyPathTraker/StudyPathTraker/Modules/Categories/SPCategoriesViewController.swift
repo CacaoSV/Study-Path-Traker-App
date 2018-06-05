@@ -44,7 +44,7 @@ class SPCategoriesViewController: UIViewController {
             flowLayout = SPCategoriesCollectionViewFlowDelegate(configuration: configuration)
         flowLayout?.selectedItemAction = { [weak self] index in
             // WIP Handle item selection
-            self?.performSegue(withIdentifier: CategoriesSegue.showItems.rawValue, sender: nil)
+            self?.performSegue(withIdentifier: Segues.CategoriesSegues.showItems.rawValue, sender: nil)
         }
         collectionView.dataSource = categoriesDataSource
         collectionView.delegate = flowLayout

@@ -16,7 +16,7 @@ class SPItemsViewController: UIViewController {
         didSet {
             itemsTableViewDelegate.selectedIndex = { [weak self] index in
                 self?.selectedItem = self?.items?[index]
-                self?.performSegue(withIdentifier: ItemsSegue.showDetail.rawValue, sender: nil)
+                self?.performSegue(withIdentifier: Segues.ItemsSegues.showDetail.rawValue, sender: nil)
             }
         }
     }

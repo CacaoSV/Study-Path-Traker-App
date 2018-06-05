@@ -53,7 +53,7 @@ class SPDetailViewController: UIViewController {
     }
 
     @IBAction private func addNewCheckListItem(_ sender: Any) {
-        performSegue(withIdentifier: DetailSegues.showCheckList.rawValue, sender: nil)
+        performSegue(withIdentifier: Segues.DetailSegues.showCheckList.rawValue, sender: nil)
     }
 
     func removeActivityIndicator() {
