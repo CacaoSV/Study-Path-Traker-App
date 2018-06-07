@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SPCheckListViewController: UIViewController {
 
@@ -26,7 +27,7 @@ class SPCheckListViewController: UIViewController {
     var item: Item?
     private var dataSource: SPCommonTableViewDataSource<Milestone, SPCheckListTableViewCell>?
     private var refreshControl = UIRefreshControl()
-    private var milestones: [Milestone] = [] {
+    private var milestones = List<Milestone>() {
         didSet {
             setMilestones()
         }
@@ -38,7 +39,7 @@ class SPCheckListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Milestones"
-        milestones = item?.milestones ?? []
+        milestones = item?.milestones ?? List<Milestone>()
         configureTableView()
     }
 
@@ -53,7 +54,8 @@ class SPCheckListViewController: UIViewController {
     }
 
     @objc private func setMilestones() {
-        dataSource = SPCommonTableViewDataSource<Milestone, SPCheckListTableViewCell>(data: milestones, reuseIdentifier: cellConfiguration.identifier) { cell, milestone, _ in
+        let items = Array(milestones)
+        dataSource = SPCommonTableViewDataSource<Milestone, SPCheckListTableViewCell>(data: items, reuseIdentifier: cellConfiguration.identifier) { cell, milestone, _ in
             cell.binding(milestone: milestone)
         }
         tableView.dataSource = dataSource
