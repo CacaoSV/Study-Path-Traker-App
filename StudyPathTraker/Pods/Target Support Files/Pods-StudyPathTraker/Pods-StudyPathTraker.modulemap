@@ -1,6 +1,0 @@
-framework module Pods_StudyPathTraker {
-  umbrella header "Pods-StudyPathTraker-umbrella.h"
-
-  export *
-  module * { export * }
-}
