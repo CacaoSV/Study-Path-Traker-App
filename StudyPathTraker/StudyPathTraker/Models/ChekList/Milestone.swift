@@ -6,7 +6,16 @@
 //  Copyright © 2018 Jerti. All rights reserved.
 //
 
-struct Milestone {
-    let isDone: Bool
-    let name: String
+import Realm
+import RealmSwift
+
+class Milestone: Object {
+    @objc var isDone: Bool = false
+    @objc var name: String?
+
+    convenience init(isDone: Bool, name: String) {
+        self.init()
+        self.isDone = isDone
+        self.name = name
+    }
 }
