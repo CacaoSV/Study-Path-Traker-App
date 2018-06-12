@@ -11,6 +11,7 @@ import UIKit
 class SPItemsViewController: UIViewController {
 
     // MARK: - Outlets
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private var itemsTableViewDelegate: SPCommonTableViewDelegate! {
         didSet {
@@ -22,6 +23,7 @@ class SPItemsViewController: UIViewController {
     }
     
     // MARK: - Properties
+
     private var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
     private var refreshControl = UIRefreshControl()
     private var items: [Item]? {

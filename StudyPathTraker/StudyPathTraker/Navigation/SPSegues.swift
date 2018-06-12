@@ -15,5 +15,6 @@ enum Segues {
     }
     enum CategoriesSegues: String {
         case showItems
+        case showAddCategory
     }
 }

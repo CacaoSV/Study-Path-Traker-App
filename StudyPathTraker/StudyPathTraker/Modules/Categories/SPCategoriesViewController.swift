@@ -10,21 +10,56 @@ import UIKit
 
 class SPCategoriesViewController: UIViewController {
 
+    // MARK: - Outlets
+
+    @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
+
+    private var categories = [CategoryItem]()
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
     private var refreshControl = UIRefreshControl()
-    @IBOutlet private weak var collectionView: UICollectionView!
-    private var categories = [CategoryItem]()
+
+    var presenter: SPCategoryPresenter = SPCategoryPresenter()
+
+    // MARK: - View Controller LifeCycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Categories"
         setRefreshControl()
         setUpCollectionView()
+        requestCategories()
         loadCategories()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        setupPresenter()
+        title = "Categories"
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let newCategoryViewController = segue.destination  as? SPNewCategoryViewController {
+            newCategoryViewController.delegate = self
+        }
     }
 
     // MARK: View Configuration
+
+    private func setupPresenter() {
+        presenter.delegate = self
+    }
+
+    func configureView() {
+        let addCategoryBarButton = UIBarButtonItem(image: UIImage(named: "ic_add_category"), style: .plain, target: self, action: #selector(showNewCategory(_:)))
+        self.navigationItem.rightBarButtonItem = addCategoryBarButton
+    }
+
+    @objc func showNewCategory(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: Segues.CategoriesSegues.showAddCategory.rawValue, sender: nil)
+    }
 
     func setRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(string: "Loading categories")
@@ -51,17 +86,34 @@ class SPCategoriesViewController: UIViewController {
     }
 
     @objc private func refreshList(_ sender: Any) {
+        requestCategories()
         loadCategories()
     }
 
     private func loadCategories() {
         refreshControl.beginRefreshing()
-        categories = [CategoryItem(name: "Git Stuffs", progress: 0.5),
-                      CategoryItem(name: "Android Stuffs", progress: 0.1),
-                      CategoryItem(name: "Web Stuffs", progress: 0.8)
-        ]
         categoriesDataSource.categories = categories
         collectionView.reloadData()
         refreshControl.endRefreshing()
+    }
+    
+}
+extension SPCategoriesViewController: SPCategoryDelegate {
+
+    func didAddNewCategory(name: String) {
+        presenter.addNewCategory(categoryName: name)
+    }
+}
+extension SPCategoriesViewController: SPCategoryPresenterProtocol {
+    func show(categories: [CategoryItem]) {
+        self.categories = categories
+    }
+
+    func requestCategories() {
+        presenter.getCategories()
+    }
+
+    func didAddNewCategorySuccess(_ message: String) {
+        present(SPAlertCenter.showMessageWithTitle(message: message), animated: true, completion: nil)
     }
 }
