@@ -105,15 +105,20 @@ extension SPCategoriesViewController: SPCategoryDelegate {
     }
 }
 extension SPCategoriesViewController: SPCategoryPresenterProtocol {
+    func didSuccessAction(_ message: String) {
+        refreshList(self)
+        present(SPAlertCenter.showMessageWithTitle(message: message), animated: true, completion: nil)
+    }
+
+    func showError(_ message: String) {
+        present(SPAlertCenter.showMessageWithTitle("Error", message: message), animated: true, completion: nil)
+    }
+
     func show(categories: [CategoryItem]) {
         self.categories = categories
     }
 
     func requestCategories() {
         presenter.getCategories()
-    }
-
-    func didAddNewCategorySuccess(_ message: String) {
-        present(SPAlertCenter.showMessageWithTitle(message: message), animated: true, completion: nil)
     }
 }

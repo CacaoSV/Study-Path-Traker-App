@@ -10,10 +10,11 @@ import UIKit
 
 protocol SPCategoryPresenterProtocol: class {
     var presenter: SPCategoryPresenter { get }
-
-    func didAddNewCategorySuccess(_ message: String)
+    
+    func didSuccessAction(_ message: String)
     func show(categories: [CategoryItem])
     func requestCategories()
+    func showError(_ message: String)
 }
 
 class SPCategoryPresenter: NSObject {
@@ -25,9 +26,9 @@ class SPCategoryPresenter: NSObject {
         let result = PersistenceManager.saveItem(item: category)
         switch result {
         case .success(_):
-            delegate?.didAddNewCategorySuccess("Category succsessfully added")
+            delegate?.didSuccessAction("Category succsessfully added")
         case .failure(let error):
-            print(error)
+            delegate?.showError(error.localizedDescription)
         }
     }
 
@@ -37,7 +38,29 @@ class SPCategoryPresenter: NSObject {
         case .success(let categories):
             delegate?.show(categories: categories)
         case .failure(let error):
-            print(error)
+            delegate?.showError(error.localizedDescription)
+        }
+    }
+
+    func deleteCategory(_ category: CategoryItem) {
+        let result = PersistenceManager.deleteItem(item: category)
+        switch result {
+        case .success(_):
+            delegate?.didSuccessAction("Category deleted")
+        case .failure(let error):
+            delegate?.showError(error.localizedDescription)
+        }
+    }
+
+    func updateCategoryName(name: String, category: CategoryItem) {
+        let result = PersistenceManager.updateItem {
+            category.name = name
+        }
+        switch result {
+        case .success(_):
+            delegate?.didSuccessAction("Category updated")
+        case .failure(let error):
+            delegate?.showError(error.localizedDescription)
         }
     }
 }
