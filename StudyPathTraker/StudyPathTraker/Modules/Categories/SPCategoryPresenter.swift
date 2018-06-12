@@ -10,14 +10,14 @@ import UIKit
 
 protocol SPCategoryPresenterProtocol: class {
     var presenter: SPCategoryPresenter { get }
-    
+
     func didSuccessAction(_ message: String)
     func show(categories: [CategoryItem])
     func requestCategories()
     func showError(_ message: String)
 }
 
-class SPCategoryPresenter: NSObject {
+class SPCategoryPresenter {
 
     weak var delegate: SPCategoryPresenterProtocol?
 

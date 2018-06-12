@@ -9,12 +9,17 @@
 import UIKit
 
 class SPRoundedButton: UIButton {
-    
-    let cornerSize: CGFloat = 8.0
 
-    override func draw(_ rect: CGRect) {
-        layer.cornerRadius = cornerSize
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        customizeButton()
+    }
+
+    private func customizeButton() {
+        layer.cornerRadius = frame.height / 2
         clipsToBounds = true
+        backgroundColor = UIColor.mainPurple
+        tintColor = UIColor.white
     }
 
 }

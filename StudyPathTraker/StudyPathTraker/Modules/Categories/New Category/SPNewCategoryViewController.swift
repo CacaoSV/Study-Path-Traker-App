@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SPCategoryDelegate: NSObjectProtocol {
+protocol SPCategoryDelegate: class {
     func didAddNewCategory(name: String)
 }
 
@@ -38,7 +38,7 @@ class SPNewCategoryViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             delegate?.didAddNewCategory(name: nameCategory)
         } else {
-            self.present(SPAlertCenter.showMessageWithTitle(message: "You need to write a name to add the category"), animated: true, completion: nil)
+            showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
         }
     }
 }

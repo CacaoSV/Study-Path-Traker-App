@@ -107,11 +107,11 @@ extension SPCategoriesViewController: SPCategoryDelegate {
 extension SPCategoriesViewController: SPCategoryPresenterProtocol {
     func didSuccessAction(_ message: String) {
         refreshList(self)
-        present(SPAlertCenter.showMessageWithTitle(message: message), animated: true, completion: nil)
+        showMessage(message)
     }
 
     func showError(_ message: String) {
-        present(SPAlertCenter.showMessageWithTitle("Error", message: message), animated: true, completion: nil)
+        showMessage(message, title: "Error")
     }
 
     func show(categories: [CategoryItem]) {

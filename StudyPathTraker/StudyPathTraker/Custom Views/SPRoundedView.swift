@@ -11,7 +11,12 @@ import UIKit
 class SPRoundedView: UIView {
     private let cornerSize: CGFloat = 8.0
 
-    override func draw(_ rect: CGRect) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        customizeView()
+    }
+
+    func customizeView() {
         layer.cornerRadius = cornerSize
         clipsToBounds = true
     }

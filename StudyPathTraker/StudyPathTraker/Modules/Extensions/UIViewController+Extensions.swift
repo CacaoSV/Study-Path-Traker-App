@@ -14,4 +14,12 @@ extension UIViewController {
         barButton.title = title
         self.navigationItem.backBarButtonItem = barButton
     }
+
+    func showMessage(_ message: String, title: String = "") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let proceedAction = UIAlertAction(title: SPAlertStrings.okText, style: .default, handler: nil)
+        alert.addAction(proceedAction)
+        alert.view.tintColor = UIColor.mainPurple
+        present(alert, animated: true, completion: nil)
+    }
 }
