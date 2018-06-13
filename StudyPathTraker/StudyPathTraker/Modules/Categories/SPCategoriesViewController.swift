@@ -20,8 +20,8 @@ class SPCategoriesViewController: UIViewController {
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
     var refreshControl = UIRefreshControl()
-
     var presenter: SPCategoryPresenter = SPCategoryPresenter()
+    private var categorySelected: CategoryItem?
 
     // MARK: - View Controller LifeCycle
 
@@ -43,6 +43,8 @@ class SPCategoriesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let newCategoryViewController = segue.destination  as? SPNewCategoryViewController {
             newCategoryViewController.delegate = self
+        } else if let itemsViewController = segue.destination as? SPItemsViewController {
+            itemsViewController.category = categorySelected
         }
     }
 
@@ -78,7 +80,7 @@ class SPCategoriesViewController: UIViewController {
                                                         headerHeight: 10)
             flowLayout = SPCategoriesCollectionViewFlowDelegate(configuration: configuration)
         flowLayout?.selectedItemAction = { [weak self] index in
-            // WIP Handle item selection
+            self?.categorySelected = self?.categories[index]
             self?.performSegue(withIdentifier: Segues.CategoriesSegues.showItems.rawValue, sender: nil)
         }
         collectionView.dataSource = categoriesDataSource

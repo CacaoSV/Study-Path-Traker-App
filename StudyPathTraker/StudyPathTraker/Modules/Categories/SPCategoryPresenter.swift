@@ -22,7 +22,7 @@ class SPCategoryPresenter {
     weak var delegate: SPCategoryPresenterProtocol?
 
     func addNewCategory(categoryName: String) {
-        let category: CategoryItem = CategoryItem(name: categoryName, progress: 0)
+        let category: CategoryItem = CategoryItem(name: categoryName, progress: 0.0, uid: NSUUID().uuidString)
         let result = PersistenceManager.saveItem(item: category)
         switch result {
         case .success(_):

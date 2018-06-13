@@ -19,7 +19,7 @@ class SPCategoryPresenterTests: XCTestCase, SPCategoryPresenterProtocol {
         super.setUp()
         expectation = XCTestExpectation(description: "Performance presenter")
         presenter.delegate = self
-        categories = []
+        categories = [CategoryItem]()
         presenter.getCategories()
     }
     

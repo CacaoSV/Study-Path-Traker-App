@@ -7,15 +7,35 @@
 //
 
 import RealmSwift
+import Realm
 
 class CategoryItem: Object {
 
     @objc dynamic var name: String?
     @objc dynamic var progress: Float = 0.0
+    @objc dynamic var uid: String = ""
 
-    convenience init(name: String, progress: Float) {
+    required init() {
+        super.init()
+    }
+    
+    convenience init(name: String, progress: Float, uid: String) {
         self.init()
         self.name = name
         self.progress = progress
+        self.uid = uid
+    }
+
+    // MARK: - Realm Implementation
+    override static func primaryKey() -> String? {
+        return "uid"
+    }
+
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
     }
 }

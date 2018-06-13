@@ -35,6 +35,7 @@ class SPItemsViewController: UIViewController {
     }
     private let cellConfiguration = SPCommonCellConfiguration(identifier: "ItemCellIdentifier", height: 130.0)
     private var selectedItem: Item?
+    var category: CategoryItem?
 
     // MARK: - View Configuration
 
