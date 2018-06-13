@@ -14,7 +14,7 @@
         <!--Categories-->
         <scene sceneID="t7B-HC-0ds">
             <objects>
-                <viewController title="Categories" id="59H-tV-zvc" customClass="SPCategoriesViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPCategoriesViewController" title="Categories" id="59H-tV-zvc" customClass="SPCategoriesViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRs-XC-oNI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

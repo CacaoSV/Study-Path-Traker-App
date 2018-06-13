@@ -7,6 +7,7 @@
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - Vendor
+  - StudyPathTrakerTests
 
 opt_in_rules: # some rules are only opt-in
   - closure_end_indentation

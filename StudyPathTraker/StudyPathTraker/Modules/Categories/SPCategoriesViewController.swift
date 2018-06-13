@@ -12,14 +12,14 @@ class SPCategoriesViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: - Properties
 
     private var categories = [CategoryItem]()
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
-    private var refreshControl = UIRefreshControl()
+    var refreshControl = UIRefreshControl()
 
     var presenter: SPCategoryPresenter = SPCategoryPresenter()
 
