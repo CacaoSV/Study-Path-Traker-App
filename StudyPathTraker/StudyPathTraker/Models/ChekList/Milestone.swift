@@ -10,12 +10,31 @@ import Realm
 import RealmSwift
 
 class Milestone: Object {
-    @objc var isDone: Bool = false
-    @objc var name: String?
+    @objc dynamic var name: String?
+    @objc dynamic var isDone: Bool = false
+    @objc dynamic var uid: String = ""
 
-    convenience init(isDone: Bool, name: String) {
+    required init() {
+        super.init()
+    }
+
+    convenience init(uid: String, isDone: Bool, name: String) {
         self.init()
+        self.uid = uid
         self.isDone = isDone
         self.name = name
+    }
+
+    // MARK: - Realm Implementation
+    override static func primaryKey() -> String? {
+        return "uid"
+    }
+
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
     }
 }

@@ -14,7 +14,7 @@ class SPRoundedButton: UIButton {
         super.init(coder: aDecoder)
         customizeButton()
     }
-
+    
     private func customizeButton() {
         layer.cornerRadius = frame.height / 2
         clipsToBounds = true

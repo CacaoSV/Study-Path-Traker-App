@@ -8,13 +8,11 @@
 
 import UIKit
 
-protocol SPCategoryPresenterProtocol: class {
+protocol SPCategoryPresenterProtocol: SPBasePresenterProtocol {
     var presenter: SPCategoryPresenter { get }
 
-    func didSuccessAction(_ message: String)
     func show(categories: [CategoryItem])
     func requestCategories()
-    func showError(_ message: String)
 }
 
 class SPCategoryPresenter {
@@ -22,7 +20,8 @@ class SPCategoryPresenter {
     weak var delegate: SPCategoryPresenterProtocol?
 
     func addNewCategory(categoryName: String) {
-        let category: CategoryItem = CategoryItem(name: categoryName, progress: 0.0, uid: NSUUID().uuidString)
+        let items = [Item]()
+        let category: CategoryItem = CategoryItem(name: categoryName, progress: 0.0, uid: NSUUID().uuidString, items: items)
         let result = PersistenceManager.saveItem(item: category)
         switch result {
         case .success(_):

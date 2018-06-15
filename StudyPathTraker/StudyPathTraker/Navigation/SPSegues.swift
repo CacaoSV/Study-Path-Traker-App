@@ -7,12 +7,20 @@
 //
 
 enum Segues {
+    
+    enum MilestoneSegues: String {
+        case showAddMilestone
+    }
+
     enum DetailSegues: String {
         case showCheckList
     }
+
     enum ItemsSegues: String {
         case showDetail
+        case showAddItem
     }
+
     enum CategoriesSegues: String {
         case showItems
         case showAddCategory

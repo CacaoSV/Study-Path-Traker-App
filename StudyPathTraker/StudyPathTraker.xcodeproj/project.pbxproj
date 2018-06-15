@@ -13,6 +13,11 @@
 		31AADF5E20AF4C4D003B81DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AADF5C20AF4C4D003B81DC /* LaunchScreen.storyboard */; };
 		31AADF6920AF4EA2003B81DC /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AADF6820AF4EA2003B81DC /* Collection.storyboard */; };
 		750EF795003A5732503161A4 /* Pods_StudyPathTraker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D620CBA18B43E72CAE68889C /* Pods_StudyPathTraker.framework */; };
+		8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476120D2CAE000001670 /* SPNewItemViewController.swift */; };
+		8B27476420D2CFD900001670 /* SPItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476320D2CFD900001670 /* SPItemPresenter.swift */; };
+		8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */; };
+		8B27476A20D2EDEC00001670 /* SPNewCheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */; };
+		8B27476C20D31CC600001670 /* SPCheckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */; };
 		8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */; };
 		8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6720C9DE0600FB62FC /* Persistence.swift */; };
 		8B45BA6A20C9DE2800FB62FC /* PersistenceServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */; };
@@ -70,6 +75,11 @@
 		31AADF5F20AF4C4D003B81DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31AADF6820AF4EA2003B81DC /* Collection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
 		436D45105151C42C2198AC52 /* Pods-StudyPathTraker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyPathTraker.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudyPathTraker/Pods-StudyPathTraker.release.xcconfig"; sourceTree = "<group>"; };
+		8B27476120D2CAE000001670 /* SPNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewItemViewController.swift; sourceTree = "<group>"; };
+		8B27476320D2CFD900001670 /* SPItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemPresenter.swift; sourceTree = "<group>"; };
+		8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBasePresenterProtocol.swift; sourceTree = "<group>"; };
+		8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCheckListViewController.swift; sourceTree = "<group>"; };
+		8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListPresenter.swift; sourceTree = "<group>"; };
 		8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		8B45BA6720C9DE0600FB62FC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocols.swift; sourceTree = "<group>"; };
@@ -200,6 +210,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8B27476020D2CABF00001670 /* New Item */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476120D2CAE000001670 /* SPNewItemViewController.swift */,
+			);
+			path = "New Item";
+			sourceTree = "<group>";
+		};
+		8B27476520D2D23500001670 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		8B27476820D2EDC400001670 /* New CheckList */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */,
+			);
+			path = "New CheckList";
+			sourceTree = "<group>";
+		};
 		8B3C183A20C04F9C006A7D8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */,
+				8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */,
 				8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */,
+				8B27476820D2EDC400001670 /* New CheckList */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -355,6 +391,7 @@
 		8BAD138520D172100012B900 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8B27476520D2D23500001670 /* Generic */,
 				8BAD138620D1721D0012B900 /* Helper */,
 			);
 			path = "Custom Classes";
@@ -393,7 +430,9 @@
 			isa = PBXGroup;
 			children = (
 				8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */,
+				8B27476320D2CFD900001670 /* SPItemPresenter.swift */,
 				8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */,
+				8B27476020D2CABF00001670 /* New Item */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -576,11 +615,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B27476420D2CFD900001670 /* SPItemPresenter.swift in Sources */,
 				8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */,
 				8BE7354420D02A1A00C0CF43 /* SPAlertCenterStrings.swift in Sources */,
 				8B45BA6C20C9DE4500FB62FC /* PersistenceManager.swift in Sources */,
 				8BA06C9E20C5B7DB00A1B56C /* SPDetailViewController.swift in Sources */,
 				8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */,
+				8B27476C20D31CC600001670 /* SPCheckListPresenter.swift in Sources */,
 				8BE7354820D02B1200C0CF43 /* SPCategoryPresenter.swift in Sources */,
 				8B94606020BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift in Sources */,
 				8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */,
@@ -588,13 +629,16 @@
 				31AADF5420AF4C4B003B81DC /* AppDelegate.swift in Sources */,
 				8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */,
 				8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */,
+				8B27476A20D2EDEC00001670 /* SPNewCheckListViewController.swift in Sources */,
 				8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */,
+				8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */,
 				8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */,
 				8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */,
 				8BAD138420D16D9F0012B900 /* StoryboardNames.swift in Sources */,
 				8BA06C9620C09B0500A1B56C /* Item.swift in Sources */,
 				8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
+				8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */,
 				8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */,
 				8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */,
 				8B94606220BF00E500B9E976 /* CategoryItem.swift in Sources */,

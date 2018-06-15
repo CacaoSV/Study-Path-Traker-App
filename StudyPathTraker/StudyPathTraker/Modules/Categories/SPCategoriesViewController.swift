@@ -35,7 +35,6 @@ class SPCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         setupPresenter()
         title = "Categories"
     }
@@ -52,15 +51,6 @@ class SPCategoriesViewController: UIViewController {
 
     private func setupPresenter() {
         presenter.delegate = self
-    }
-
-    func configureView() {
-        let addCategoryBarButton = UIBarButtonItem(image: UIImage(named: "ic_add_category"), style: .plain, target: self, action: #selector(showNewCategory(_:)))
-        self.navigationItem.rightBarButtonItem = addCategoryBarButton
-    }
-
-    @objc func showNewCategory(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Segues.CategoriesSegues.showAddCategory.rawValue, sender: nil)
     }
 
     func setRefreshControl() {

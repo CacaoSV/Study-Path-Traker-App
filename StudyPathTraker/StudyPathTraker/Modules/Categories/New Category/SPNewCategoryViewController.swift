@@ -32,19 +32,24 @@ class SPNewCategoryViewController: UIViewController {
 
     // MARK: - Functions
 
-    @IBAction private func addCategory(_ sender: Any) {
-        let nameCategory: String = nameCategoryTextField.text ?? ""
-        if !nameCategory.isEmpty {
+    @IBAction private func addNewCategory(_ sender: Any) {
+        let name: String = nameCategoryTextField.text ?? ""
+        createCategory(name: name)
+    }
+
+    func createCategory(name: String) {
+        if !name.isEmpty {
             self.navigationController?.popViewController(animated: true)
-            delegate?.didAddNewCategory(name: nameCategory)
+            delegate?.didAddNewCategory(name: name)
         } else {
             showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
         }
     }
+
 }
 extension SPNewCategoryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        addCategory(self)
+        addNewCategory(self)
         return true
     }
 }

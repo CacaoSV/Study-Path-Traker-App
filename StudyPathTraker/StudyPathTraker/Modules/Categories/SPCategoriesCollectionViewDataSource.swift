@@ -25,7 +25,6 @@ class SPCategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource
         }
         let item = categories[indexPath.row]
         cell.binding(category: item)
-        cell.customizeCell()
         return cell
     }
 

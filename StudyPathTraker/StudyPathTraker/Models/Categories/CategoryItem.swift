@@ -14,16 +14,18 @@ class CategoryItem: Object {
     @objc dynamic var name: String?
     @objc dynamic var progress: Float = 0.0
     @objc dynamic var uid: String = ""
+    var items = List<Item>()
 
     required init() {
         super.init()
     }
     
-    convenience init(name: String, progress: Float, uid: String) {
+    convenience init(name: String, progress: Float, uid: String, items: [Item]) {
         self.init()
         self.name = name
         self.progress = progress
         self.uid = uid
+        self.items.append(objectsIn: items)
     }
 
     // MARK: - Realm Implementation
