@@ -12,6 +12,8 @@ import XCTest
 class SPCategoryPresenterTests: XCTestCase, SPCategoryPresenterProtocol {
 
     var presenter: SPCategoryPresenter = SPCategoryPresenter()
+    var newPresenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
+
     var expectation: XCTestExpectation!
     var categories: [CategoryItem]!
 
@@ -37,6 +39,9 @@ class SPCategoryPresenterTests: XCTestCase, SPCategoryPresenterProtocol {
     }
 
     func testDeleteItem() {
+        newPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
+        newPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
+        presenter.getCategories()
         let lastItem = categories.last
         let totalItems = categories.count
         presenter.deleteCategory(lastItem!)

@@ -158,7 +158,12 @@ struct PersistenceManager {
 
     static private func getRealm() -> Result<Realm> {
         do {
-            let realm = try Realm()
+            let realm: Realm
+            if NSClassFromString("XCTest") != nil {
+                 realm = try Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
+            } else {
+                 realm = try Realm()
+            }
             return .success(realm)
         } catch {
             print("Failed to initialize Realm. Failed with error: \(error.localizedDescription)")
