@@ -17,7 +17,6 @@ class SPItemPresenterTests: XCTestCase, SPItemPresenterProtocol {
 
     var expectation: XCTestExpectation!
     var items: [Item]!
-    var message: String!
     var category: CategoryItem!
     var item: Item!
 
@@ -26,13 +25,11 @@ class SPItemPresenterTests: XCTestCase, SPItemPresenterProtocol {
         expectation = XCTestExpectation(description: "Performance presenter")
         itemPresenter.delegate = self
         items = [Item]()
-        message = ""
         category = CategoryItem.newCategory(name: "Test")
         item = Item.newItem(name: "Google", url: "https://www.google.com")
     }
 
     override func tearDown() {
-        message = nil
         expectation = nil
         items = nil
         category = nil
@@ -58,9 +55,8 @@ class SPItemPresenterTests: XCTestCase, SPItemPresenterProtocol {
         wait(for: [expectation], timeout: 10.0)
         XCTAssertEqual(items.count, totalItems-1)
     }
-    
+
     func didSuccessAction(_ message: String) {
-        self.message = message
         expectation.fulfill()
     }
 
