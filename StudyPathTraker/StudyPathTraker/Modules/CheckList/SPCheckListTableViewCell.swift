@@ -9,11 +9,11 @@
 import UIKit
 
 class SPCheckListTableViewCell: UITableViewCell {
-    @IBOutlet private weak var isReadySwitch: UISwitch!
+    @IBOutlet weak var isReadySwitch: UISwitch!
     @IBOutlet private weak var nameMilestoneLabel: UILabel!
 
     func binding(milestone: Milestone) {
-        isReadySwitch.isOn = milestone.isDone
         nameMilestoneLabel.text = milestone.name
+        isReadySwitch.isOn = milestone.isDone
     }
 }

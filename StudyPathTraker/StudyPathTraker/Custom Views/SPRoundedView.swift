@@ -9,10 +9,10 @@
 import UIKit
 
 class SPRoundedView: UIView {
-    private let cornerSize: CGFloat = 8.0
-
-    override func draw(_ rect: CGRect) {
-        layer.cornerRadius = cornerSize
-        clipsToBounds = true
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+            clipsToBounds = true
+        }
     }
 }

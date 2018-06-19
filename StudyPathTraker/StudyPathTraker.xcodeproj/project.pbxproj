@@ -13,10 +13,26 @@
 		31AADF5E20AF4C4D003B81DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AADF5C20AF4C4D003B81DC /* LaunchScreen.storyboard */; };
 		31AADF6920AF4EA2003B81DC /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AADF6820AF4EA2003B81DC /* Collection.storyboard */; };
 		750EF795003A5732503161A4 /* Pods_StudyPathTraker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D620CBA18B43E72CAE68889C /* Pods_StudyPathTraker.framework */; };
+		8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476120D2CAE000001670 /* SPNewItemViewController.swift */; };
+		8B27476420D2CFD900001670 /* SPItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476320D2CFD900001670 /* SPItemPresenter.swift */; };
+		8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */; };
+		8B27476A20D2EDEC00001670 /* SPNewCheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */; };
+		8B27476C20D31CC600001670 /* SPCheckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */; };
 		8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */; };
 		8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6720C9DE0600FB62FC /* Persistence.swift */; };
 		8B45BA6A20C9DE2800FB62FC /* PersistenceServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */; };
 		8B45BA6C20C9DE4500FB62FC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6B20C9DE4500FB62FC /* PersistenceManager.swift */; };
+		8B55388120D9567300915589 /* SPNewItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388020D9567300915589 /* SPNewItemPresenter.swift */; };
+		8B55388320D9580F00915589 /* SPNewCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */; };
+		8B55388520D9581A00915589 /* SPNewCheckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */; };
+		8B562CBC20CAF6F900CFB66F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B562CBB20CAF6F900CFB66F /* Realm.framework */; };
+		8B5E0B0020CAF72A00DF42E0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */; };
+		8B675B3A20D01D47007D160D /* SPNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */; };
+		8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675B3D20D02215007D160D /* SPRoundedButton.swift */; };
+		8B70607920D96F2100BB0FC9 /* Milestone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */; };
+		8B70607B20D9708900BB0FC9 /* Category+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */; };
+		8B70607D20D971BC00BB0FC9 /* Item+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */; };
+		8B70607F20D97BDF00BB0FC9 /* SPNewCategoryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607E20D97BDF00BB0FC9 /* SPNewCategoryPresenterTests.swift */; };
 		8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */; };
 		8B94605A20BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */; };
 		8B94605E20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */; };
@@ -35,11 +51,26 @@
 		8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */; };
 		8BA06CAF20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */; };
 		8BA06CBF20C6FC7E00A1B56C /* SPSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06CBE20C6FC7E00A1B56C /* SPSegues.swift */; };
+		8BAD138220D16D170012B900 /* SPCategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD138120D16D170012B900 /* SPCategoriesViewControllerTests.swift */; };
+		8BAD138420D16D9F0012B900 /* StoryboardNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD138320D16D9F0012B900 /* StoryboardNames.swift */; };
+		8BAD138820D173DE0012B900 /* StoryboardInstantiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD138720D173DE0012B900 /* StoryboardInstantiation.swift */; };
+		8BAD138B20D17BB70012B900 /* SPCategoryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD138A20D17BB70012B900 /* SPCategoryPresenterTests.swift */; };
 		8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */; };
 		8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */; };
 		8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5DD0320C099280078942E /* SPRoundedView.swift */; };
-		8BDD9B1220C7439E00C6C7EF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDD9B1120C7439E00C6C7EF /* RealmSwift.framework */; };
+		8BE7354420D02A1A00C0CF43 /* SPAlertCenterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7354320D02A1A00C0CF43 /* SPAlertCenterStrings.swift */; };
+		8BE7354820D02B1200C0CF43 /* SPCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7354720D02B1200C0CF43 /* SPCategoryPresenter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BAD137A20D16CE60012B900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31AADF4820AF4C4B003B81DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31AADF4F20AF4C4B003B81DC;
+			remoteInfo = StudyPathTraker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A4BF05BBC096812E861CF16 /* Pods-StudyPathTraker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyPathTraker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudyPathTraker/Pods-StudyPathTraker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,10 +82,27 @@
 		31AADF5F20AF4C4D003B81DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31AADF6820AF4EA2003B81DC /* Collection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
 		436D45105151C42C2198AC52 /* Pods-StudyPathTraker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyPathTraker.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudyPathTraker/Pods-StudyPathTraker.release.xcconfig"; sourceTree = "<group>"; };
+		8B27476120D2CAE000001670 /* SPNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewItemViewController.swift; sourceTree = "<group>"; };
+		8B27476320D2CFD900001670 /* SPItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemPresenter.swift; sourceTree = "<group>"; };
+		8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBasePresenterProtocol.swift; sourceTree = "<group>"; };
+		8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCheckListViewController.swift; sourceTree = "<group>"; };
+		8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListPresenter.swift; sourceTree = "<group>"; };
 		8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		8B45BA6720C9DE0600FB62FC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocols.swift; sourceTree = "<group>"; };
 		8B45BA6B20C9DE4500FB62FC /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		8B55388020D9567300915589 /* SPNewItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewItemPresenter.swift; sourceTree = "<group>"; };
+		8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCategoryPresenter.swift; sourceTree = "<group>"; };
+		8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCheckListPresenter.swift; sourceTree = "<group>"; };
+		8B562CB920CAF6F100CFB66F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B562CBB20CAF6F900CFB66F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCategoryViewController.swift; sourceTree = "<group>"; };
+		8B675B3D20D02215007D160D /* SPRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedButton.swift; sourceTree = "<group>"; };
+		8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Milestone+Extensions.swift"; sourceTree = "<group>"; };
+		8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Extensions.swift"; sourceTree = "<group>"; };
+		8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Extensions.swift"; sourceTree = "<group>"; };
+		8B70607E20D97BDF00BB0FC9 /* SPNewCategoryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCategoryPresenterTests.swift; sourceTree = "<group>"; };
 		8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesViewController.swift; sourceTree = "<group>"; };
 		8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -73,10 +121,19 @@
 		8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListTableViewCell.swift; sourceTree = "<group>"; };
 		8BA06CAE20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDelegate.swift; sourceTree = "<group>"; };
 		8BA06CBE20C6FC7E00A1B56C /* SPSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPSegues.swift; sourceTree = "<group>"; };
+		8BAD137520D16CE60012B900 /* StudyPathTrakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyPathTrakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BAD137920D16CE60012B900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BAD138020D16D170012B900 /* StudyPathTrakerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StudyPathTrakerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8BAD138120D16D170012B900 /* SPCategoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesViewControllerTests.swift; sourceTree = "<group>"; };
+		8BAD138320D16D9F0012B900 /* StoryboardNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNames.swift; sourceTree = "<group>"; };
+		8BAD138720D173DE0012B900 /* StoryboardInstantiation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiation.swift; sourceTree = "<group>"; };
+		8BAD138A20D17BB70012B900 /* SPCategoryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoryPresenterTests.swift; sourceTree = "<group>"; };
 		8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemsViewController.swift; sourceTree = "<group>"; };
 		8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemTableViewCell.swift; sourceTree = "<group>"; };
 		8BD5DD0320C099280078942E /* SPRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedView.swift; sourceTree = "<group>"; };
 		8BDD9B1120C7439E00C6C7EF /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BE7354320D02A1A00C0CF43 /* SPAlertCenterStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPAlertCenterStrings.swift; sourceTree = "<group>"; };
+		8BE7354720D02B1200C0CF43 /* SPCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoryPresenter.swift; sourceTree = "<group>"; };
 		D620CBA18B43E72CAE68889C /* Pods_StudyPathTraker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyPathTraker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,9 +142,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BDD9B1220C7439E00C6C7EF /* RealmSwift.framework in Frameworks */,
+				8B5E0B0020CAF72A00DF42E0 /* RealmSwift.framework in Frameworks */,
+				8B562CBC20CAF6F900CFB66F /* Realm.framework in Frameworks */,
 				8BA06CA120C5BB6000A1B56C /* WebKit.framework in Frameworks */,
 				750EF795003A5732503161A4 /* Pods_StudyPathTraker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAD137220D16CE60012B900 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				31AADF5220AF4C4B003B81DC /* StudyPathTraker */,
+				8BAD137620D16CE60012B900 /* StudyPathTrakerTests */,
 				31AADF5120AF4C4B003B81DC /* Products */,
 				8BA06C9F20C5BB6000A1B56C /* Frameworks */,
 				89B7EBE5E21EEDE7CFC46D0A /* Pods */,
@@ -108,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				31AADF5020AF4C4B003B81DC /* StudyPathTraker.app */,
+				8BAD137520D16CE60012B900 /* StudyPathTrakerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +182,7 @@
 		31AADF5220AF4C4B003B81DC /* StudyPathTraker */ = {
 			isa = PBXGroup;
 			children = (
+				8BE7354220D02A0500C0CF43 /* Structs */,
 				8B45BA6620C9DDEE00FB62FC /* Persistence */,
 				8BA06CB120C6D41600A1B56C /* Models */,
 				8BA06CB020C6D40F00A1B56C /* Modules */,
@@ -134,6 +202,7 @@
 				8B94606420BF04D500B9E976 /* SPLightNavigationController.swift */,
 				31AADF5720AF4C4B003B81DC /* Main.storyboard */,
 				8BA06CBE20C6FC7E00A1B56C /* SPSegues.swift */,
+				8BAD138320D16D9F0012B900 /* StoryboardNames.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -155,10 +224,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8B27476020D2CABF00001670 /* New Item */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476120D2CAE000001670 /* SPNewItemViewController.swift */,
+				8B55388020D9567300915589 /* SPNewItemPresenter.swift */,
+			);
+			path = "New Item";
+			sourceTree = "<group>";
+		};
+		8B27476520D2D23500001670 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476620D2D25B00001670 /* SPBasePresenterProtocol.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		8B27476820D2EDC400001670 /* New CheckList */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */,
+				8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */,
+			);
+			path = "New CheckList";
+			sourceTree = "<group>";
+		};
 		8B3C183A20C04F9C006A7D8A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */,
+				8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */,
+				8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */,
+				8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +269,15 @@
 				8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		8B675B3820D01D25007D160D /* New Category */ = {
+			isa = PBXGroup;
+			children = (
+				8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */,
+				8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */,
+			);
+			path = "New Category";
 			sourceTree = "<group>";
 		};
 		8B94606620BF051500B9E976 /* Colors */ = {
@@ -203,7 +310,9 @@
 			isa = PBXGroup;
 			children = (
 				8BA06CA420C5D88800A1B56C /* SPCheckListViewController.swift */,
+				8B27476B20D31CC600001670 /* SPCheckListPresenter.swift */,
 				8BA06CA820C5D9A500A1B56C /* SPCheckListTableViewCell.swift */,
+				8B27476820D2EDC400001670 /* New CheckList */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -220,6 +329,9 @@
 		8BA06C9F20C5BB6000A1B56C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */,
+				8B562CBB20CAF6F900CFB66F /* Realm.framework */,
+				8B562CB920CAF6F100CFB66F /* Realm.framework */,
 				8BDD9B1120C7439E00C6C7EF /* RealmSwift.framework */,
 				8BA06CA020C5BB6000A1B56C /* WebKit.framework */,
 				D620CBA18B43E72CAE68889C /* Pods_StudyPathTraker.framework */,
@@ -230,6 +342,7 @@
 		8BA06CB020C6D40F00A1B56C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8BAD138520D172100012B900 /* Custom Classes */,
 				8BA06C9C20C5B7B900A1B56C /* Detail */,
 				8BA06C9720C09B8800A1B56C /* CheckList */,
 				8BD5DCFC20C097B30078942E /* Items */,
@@ -276,13 +389,60 @@
 			path = ChekList;
 			sourceTree = "<group>";
 		};
+		8BAD137620D16CE60012B900 /* StudyPathTrakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD138920D17BA90012B900 /* Presenters */,
+				8BAD137F20D16CFA0012B900 /* View Controllers */,
+				8BAD137920D16CE60012B900 /* Info.plist */,
+			);
+			path = StudyPathTrakerTests;
+			sourceTree = "<group>";
+		};
+		8BAD137F20D16CFA0012B900 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD138120D16D170012B900 /* SPCategoriesViewControllerTests.swift */,
+				8BAD138020D16D170012B900 /* StudyPathTrakerTests-Bridging-Header.h */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8BAD138520D172100012B900 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8B27476520D2D23500001670 /* Generic */,
+				8BAD138620D1721D0012B900 /* Helper */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		8BAD138620D1721D0012B900 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD138720D173DE0012B900 /* StoryboardInstantiation.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		8BAD138920D17BA90012B900 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD138A20D17BB70012B900 /* SPCategoryPresenterTests.swift */,
+				8B70607E20D97BDF00BB0FC9 /* SPNewCategoryPresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		8BD5DCFB20C097A20078942E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */,
+				8BE7354720D02B1200C0CF43 /* SPCategoryPresenter.swift */,
 				8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */,
 				8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */,
 				8B94605F20BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift */,
+				8B675B3820D01D25007D160D /* New Category */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -291,7 +451,9 @@
 			isa = PBXGroup;
 			children = (
 				8BD5DCFD20C097DA0078942E /* SPItemsViewController.swift */,
+				8B27476320D2CFD900001670 /* SPItemPresenter.swift */,
 				8BD5DCFF20C098660078942E /* SPItemTableViewCell.swift */,
+				8B27476020D2CABF00001670 /* New Item */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -300,8 +462,17 @@
 			isa = PBXGroup;
 			children = (
 				8BD5DD0320C099280078942E /* SPRoundedView.swift */,
+				8B675B3D20D02215007D160D /* SPRoundedButton.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		8BE7354220D02A0500C0CF43 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				8BE7354320D02A1A00C0CF43 /* SPAlertCenterStrings.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,18 +498,41 @@
 			productReference = 31AADF5020AF4C4B003B81DC /* StudyPathTraker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BAD137420D16CE60012B900 /* StudyPathTrakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BAD137C20D16CE60012B900 /* Build configuration list for PBXNativeTarget "StudyPathTrakerTests" */;
+			buildPhases = (
+				8BAD137120D16CE60012B900 /* Sources */,
+				8BAD137220D16CE60012B900 /* Frameworks */,
+				8BAD137320D16CE60012B900 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BAD137B20D16CE60012B900 /* PBXTargetDependency */,
+			);
+			name = StudyPathTrakerTests;
+			productName = StudyPathTrakerTests;
+			productReference = 8BAD137520D16CE60012B900 /* StudyPathTrakerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		31AADF4820AF4C4B003B81DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Jerti;
 				TargetAttributes = {
 					31AADF4F20AF4C4B003B81DC = {
 						CreatedOnToolsVersion = 9.3.1;
+					};
+					8BAD137420D16CE60012B900 = {
+						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
+						TestTargetID = 31AADF4F20AF4C4B003B81DC;
 					};
 				};
 			};
@@ -356,6 +550,7 @@
 			projectRoot = "";
 			targets = (
 				31AADF4F20AF4C4B003B81DC /* StudyPathTraker */,
+				8BAD137420D16CE60012B900 /* StudyPathTrakerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -369,6 +564,13 @@
 				31AADF5E20AF4C4D003B81DC /* LaunchScreen.storyboard in Resources */,
 				31AADF5B20AF4C4C003B81DC /* Assets.xcassets in Resources */,
 				31AADF5920AF4C4B003B81DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BAD137320D16CE60012B900 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,24 +636,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B27476420D2CFD900001670 /* SPItemPresenter.swift in Sources */,
 				8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */,
+				8BE7354420D02A1A00C0CF43 /* SPAlertCenterStrings.swift in Sources */,
 				8B45BA6C20C9DE4500FB62FC /* PersistenceManager.swift in Sources */,
 				8BA06C9E20C5B7DB00A1B56C /* SPDetailViewController.swift in Sources */,
 				8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */,
+				8B55388320D9580F00915589 /* SPNewCategoryPresenter.swift in Sources */,
+				8B27476C20D31CC600001670 /* SPCheckListPresenter.swift in Sources */,
+				8BE7354820D02B1200C0CF43 /* SPCategoryPresenter.swift in Sources */,
 				8B94606020BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift in Sources */,
 				8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */,
 				8B94605E20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift in Sources */,
 				31AADF5420AF4C4B003B81DC /* AppDelegate.swift in Sources */,
 				8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */,
 				8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */,
+				8B27476A20D2EDEC00001670 /* SPNewCheckListViewController.swift in Sources */,
+				8B70607920D96F2100BB0FC9 /* Milestone+Extensions.swift in Sources */,
 				8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */,
+				8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */,
 				8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */,
+				8B70607D20D971BC00BB0FC9 /* Item+Extensions.swift in Sources */,
+				8B55388120D9567300915589 /* SPNewItemPresenter.swift in Sources */,
 				8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */,
+				8BAD138420D16D9F0012B900 /* StoryboardNames.swift in Sources */,
 				8BA06C9620C09B0500A1B56C /* Item.swift in Sources */,
+				8B55388520D9581A00915589 /* SPNewCheckListPresenter.swift in Sources */,
+				8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
+				8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */,
+				8B70607B20D9708900BB0FC9 /* Category+Extensions.swift in Sources */,
 				8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */,
 				8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */,
 				8B94606220BF00E500B9E976 /* CategoryItem.swift in Sources */,
+				8B675B3A20D01D47007D160D /* SPNewCategoryViewController.swift in Sources */,
+				8BAD138820D173DE0012B900 /* StoryboardInstantiation.swift in Sources */,
 				8BA06CAF20C5DD0F00A1B56C /* SPCommonTableViewDelegate.swift in Sources */,
 				8B94606820BF054000B9E976 /* SPBaseColors.swift in Sources */,
 				8B94606520BF04D500B9E976 /* SPLightNavigationController.swift in Sources */,
@@ -462,7 +681,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BAD137120D16CE60012B900 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BAD138220D16D170012B900 /* SPCategoriesViewControllerTests.swift in Sources */,
+				8BAD138B20D17BB70012B900 /* SPCategoryPresenterTests.swift in Sources */,
+				8B70607F20D97BDF00BB0FC9 /* SPNewCategoryPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BAD137B20D16CE60012B900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31AADF4F20AF4C4B003B81DC /* StudyPathTraker */;
+			targetProxy = 8BAD137A20D16CE60012B900 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		31AADF5720AF4C4B003B81DC /* Main.storyboard */ = {
@@ -636,6 +873,51 @@
 			};
 			name = Release;
 		};
+		8BAD137D20D16CE60012B900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StudyPathTrakerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rflpz.StudyPathTrakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StudyPathTrakerTests/View Controllers/StudyPathTrakerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyPathTraker.app/StudyPathTraker";
+			};
+			name = Debug;
+		};
+		8BAD137E20D16CE60012B900 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StudyPathTrakerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rflpz.StudyPathTrakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StudyPathTrakerTests/View Controllers/StudyPathTrakerTests-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyPathTraker.app/StudyPathTraker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -653,6 +935,15 @@
 			buildConfigurations = (
 				31AADF6320AF4C4D003B81DC /* Debug */,
 				31AADF6420AF4C4D003B81DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BAD137C20D16CE60012B900 /* Build configuration list for PBXNativeTarget "StudyPathTrakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BAD137D20D16CE60012B900 /* Debug */,
+				8BAD137E20D16CE60012B900 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,15 +12,15 @@ class SPCategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var totalProgressView: UIProgressView!
-    private let cornerSize: CGFloat = 8.0
-
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+            clipsToBounds = true
+        }
+    }
+    
     func binding(category: CategoryItem) {
         nameLabel.text = category.name
         totalProgressView.progress = category.progress
-    }
-
-    func customizeCell() {
-        layer.cornerRadius = cornerSize
-        clipsToBounds = true
     }
 }

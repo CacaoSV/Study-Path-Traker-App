@@ -11,15 +11,20 @@ import UIKit
 
 class SPCommonTableViewDataSource<T, C: UITableViewCell>: NSObject, UITableViewDataSource {
     typealias CellConfiguration = ((C, T, IndexPath) -> Void)
+    typealias CellDeleted = ((IndexPath) -> Void)
 
     var data: [T]
     let reuseIdentifier: String
     let configurationBlock: CellConfiguration
+    let deleteBlock: CellDeleted
+    var deleteAllowed: Bool
 
-    init(data: [T], reuseIdentifier: String, configurationBlock: @escaping CellConfiguration) {
+    init(data: [T], reuseIdentifier: String, deleteAllowed: Bool, deleteBlock: @escaping CellDeleted, configurationBlock: @escaping CellConfiguration) {
         self.data = data
         self.reuseIdentifier = reuseIdentifier
         self.configurationBlock = configurationBlock
+        self.deleteBlock = deleteBlock
+        self.deleteAllowed = deleteAllowed
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,5 +40,14 @@ class SPCommonTableViewDataSource<T, C: UITableViewCell>: NSObject, UITableViewD
         configurationBlock(cell, item, indexPath)
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteBlock(indexPath)
+        }
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return deleteAllowed
     }
 }
