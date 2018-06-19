@@ -62,7 +62,7 @@ class SPCategoriesViewController: UIViewController {
 
     func setRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(string: "Loading categories")
-        refreshControl.addTarget(self, action: #selector( refreshList(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshList), for: .valueChanged)
         collectionView.refreshControl = refreshControl
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
@@ -84,13 +84,13 @@ class SPCategoriesViewController: UIViewController {
         collectionView.delegate = flowLayout
     }
 
-    @objc private func refreshList(_ sender: Any) {
+    @objc private func refreshList() {
+        refreshControl.beginRefreshing()
         presenter.getCategories()
         loadCategories()
     }
 
     private func loadCategories() {
-        refreshControl.beginRefreshing()
         categoriesDataSource.categories = categories
         collectionView.reloadData()
         refreshControl.endRefreshing()
@@ -109,7 +109,7 @@ class SPCategoriesViewController: UIViewController {
 }
 extension SPCategoriesViewController: SPCategoryPresenterProtocol {
     func didSuccessAction(_ message: String) {
-        refreshList(self)
+        refreshList()
         showMessage(message)
     }
 

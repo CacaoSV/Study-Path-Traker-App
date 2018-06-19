@@ -40,34 +40,47 @@ class SPNewCategoryViewController: UIViewController {
     
     // MARK: - Functions
 
-    @IBAction private func addNewCategory(_ sender: Any) {
+    @IBAction private func tappedAddButton(_ sender: Any) {
         let name: String = nameCategoryTextField.text ?? ""
-        if !name.isEmpty {
-            self.navigationController?.popViewController(animated: true)
+        if verifyForm(name: name) {
             if isToEdit, let currentCategory = category {
-                presenter.updateCategoryName(name: name,
-                                             category: currentCategory)
+                updateCategory(name: name, category: currentCategory)
             } else {
-
-                presenter.addCategory(createCategory(name: name))
+                createCategory(name: name)
             }
-        } else {
-            showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
         }
     }
 
-    func createCategory(name: String) -> CategoryItem {
-       return CategoryItem(name: name,
-                           progress: 0.0,
-                           uid: NSUUID().uuidString,
-                           items: [Item]()
-        )
+    private func handleActionForCategory(categoryName: String) {
+        if isToEdit, let currentCategory = category {
+            updateCategory(name: categoryName, category: currentCategory)
+        } else {
+            createCategory(name: categoryName)
+        }
     }
 
+    private func verifyForm(name: String) -> Bool {
+        if !name.isEmpty {
+            return true
+        }
+        showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
+        return false
+    }
+
+    private func createCategory(name: String) {
+        presenter.addCategory(CategoryItem.newCategory(name: name))
+    }
+
+    private func updateCategory(name: String, category: CategoryItem) {
+        presenter.updateCategoryName(name: name, category: category)
+    }
 }
 extension SPNewCategoryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        addNewCategory(self)
+        let name: String = textField.text ?? ""
+        if verifyForm(name: name) {
+            handleActionForCategory(categoryName: name)
+        }
         return true
     }
 }

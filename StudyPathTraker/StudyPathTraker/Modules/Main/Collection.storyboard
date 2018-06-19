@@ -123,7 +123,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ADD"/>
                                 <connections>
-                                    <action selector="addNewCategory:" destination="fyt-vc-CM1" eventType="touchUpInside" id="Wui-PV-XKS"/>
+                                    <action selector="tappedAddButton:" destination="fyt-vc-CM1" eventType="touchUpInside" id="gI5-wQ-eIE"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example &lt;iOS Stuffs&gt;" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6I-qi-OTN">
@@ -459,7 +459,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ADD"/>
                                 <connections>
-                                    <action selector="addNewItem:" destination="i5w-GE-AC0" eventType="touchUpInside" id="CyY-Nv-Lfi"/>
+                                    <action selector="tappedAddButton:" destination="i5w-GE-AC0" eventType="touchUpInside" id="nmO-Vq-e49"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example &lt;Core Data&gt;" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-aZ-noM">
@@ -537,7 +537,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ADD"/>
                                 <connections>
-                                    <action selector="addNewMilestione:" destination="IF1-k3-pMt" eventType="touchUpInside" id="ZoB-31-jIU"/>
+                                    <action selector="tappedAddButton:" destination="IF1-k3-pMt" eventType="touchUpInside" id="kw2-wU-ApH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example &lt;Read Full Article&gt;" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="387-UQ-hMt">

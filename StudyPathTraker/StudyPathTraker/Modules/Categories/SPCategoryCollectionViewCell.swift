@@ -18,6 +18,7 @@ class SPCategoryCollectionViewCell: UICollectionViewCell {
             clipsToBounds = true
         }
     }
+    
     func binding(category: CategoryItem) {
         nameLabel.text = category.name
         totalProgressView.progress = category.progress

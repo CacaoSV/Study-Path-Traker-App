@@ -48,19 +48,24 @@ class SPNewCheckListViewController: UIViewController {
         addNewButton.setTitle("Edit", for: .normal)
     }
 
-    @IBAction private func addNewMilestione(_ sender: Any) {
+    @IBAction private func tappedAddButton(_ sender: Any) {
         let name = nameMilestone.text ?? ""
-        guard let currentItem = item else {
-            return
-        }
         if verifyForm(name: name) {
             if isToEdit {
                 editMilestone(name: name)
             } else {
-                presenter.addMilestone(createNewMilestone(name: name), item: currentItem)
+                createMilestone(name: name)
             }
         }
     }
+
+    private func createMilestone(name: String) {
+        guard let currentItem = item else {
+            return
+        }
+        presenter.addMilestone(Milestone.newMilestone(name: name), item: currentItem)
+    }
+
     private func editMilestone(name: String) {
         guard let currentMilestone = milestone else {
             return
@@ -68,9 +73,6 @@ class SPNewCheckListViewController: UIViewController {
         presenter.updateMilestone(currentMilestone, name: name)
     }
 
-    private func createNewMilestone(name: String) -> Milestone {
-        return Milestone(uid: NSUUID().uuidString, isDone: false, name: name)
-    }
     private func verifyForm(name: String) -> Bool {
         if !name.isEmpty {
             return true

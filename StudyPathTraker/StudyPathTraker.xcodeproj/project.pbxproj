@@ -29,6 +29,9 @@
 		8B5E0B0020CAF72A00DF42E0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */; };
 		8B675B3A20D01D47007D160D /* SPNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */; };
 		8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675B3D20D02215007D160D /* SPRoundedButton.swift */; };
+		8B70607920D96F2100BB0FC9 /* Milestone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */; };
+		8B70607B20D9708900BB0FC9 /* Category+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */; };
+		8B70607D20D971BC00BB0FC9 /* Item+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */; };
 		8B94605820BEF64500B9E976 /* SPCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */; };
 		8B94605A20BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */; };
 		8B94605E20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */; };
@@ -95,6 +98,9 @@
 		8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCategoryViewController.swift; sourceTree = "<group>"; };
 		8B675B3D20D02215007D160D /* SPRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundedButton.swift; sourceTree = "<group>"; };
+		8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Milestone+Extensions.swift"; sourceTree = "<group>"; };
+		8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Extensions.swift"; sourceTree = "<group>"; };
+		8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Extensions.swift"; sourceTree = "<group>"; };
 		8B94605720BEF64500B9E976 /* SPCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesViewController.swift; sourceTree = "<group>"; };
 		8B94605920BEF7AE00B9E976 /* SPCategoriesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoriesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8B94605D20BEF9DD00B9E976 /* SPCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				8B3C183B20C04FDD006A7D8A /* UIViewController+Extensions.swift */,
+				8B70607820D96F2100BB0FC9 /* Milestone+Extensions.swift */,
+				8B70607A20D9708900BB0FC9 /* Category+Extensions.swift */,
+				8B70607C20D971BC00BB0FC9 /* Item+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -640,9 +649,11 @@
 				8BD5DD0420C099280078942E /* SPRoundedView.swift in Sources */,
 				8BA06CA520C5D88800A1B56C /* SPCheckListViewController.swift in Sources */,
 				8B27476A20D2EDEC00001670 /* SPNewCheckListViewController.swift in Sources */,
+				8B70607920D96F2100BB0FC9 /* Milestone+Extensions.swift in Sources */,
 				8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */,
 				8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */,
 				8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */,
+				8B70607D20D971BC00BB0FC9 /* Item+Extensions.swift in Sources */,
 				8B55388120D9567300915589 /* SPNewItemPresenter.swift in Sources */,
 				8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */,
 				8BAD138420D16D9F0012B900 /* StoryboardNames.swift in Sources */,
@@ -651,6 +662,7 @@
 				8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
 				8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */,
+				8B70607B20D9708900BB0FC9 /* Category+Extensions.swift in Sources */,
 				8BA06CA920C5D9A500A1B56C /* SPCheckListTableViewCell.swift in Sources */,
 				8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */,
 				8B94606220BF00E500B9E976 /* CategoryItem.swift in Sources */,

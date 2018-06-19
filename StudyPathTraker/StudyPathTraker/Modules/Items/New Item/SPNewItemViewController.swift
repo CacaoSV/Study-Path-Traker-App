@@ -47,7 +47,7 @@ class SPNewItemViewController: UIViewController {
         addButton.setTitle("Edit", for: .normal)
     }
 
-    @IBAction private func addNewItem(_ sender: Any) {
+    @IBAction private func tappedAddButton(_ sender: Any) {
         let name = nameTextField.text ?? ""
         let url = urlTextField.text ?? ""
 
@@ -55,22 +55,17 @@ class SPNewItemViewController: UIViewController {
             if isToEdit {
                 editItem(name: name, url: url)
             } else {
-                guard let currentCategory = category else {
-                    return
-                }
-                presenter.addNewItem(createNewItem(name: name,
-                                                   url: url),
-                                     category: currentCategory)
+                createItem(name: name, url: url)
             }
         }
     }
-
-    private func createNewItem(name: String, url: String) -> Item {
-        return Item(uid: NSUUID().uuidString,
-                    name: name, progress: 0.0,
-                    url: url,
-                    milestones: [Milestone]()
-        )
+    private func createItem(name: String, url: String) {
+        guard let currentCategory = category else {
+            return
+        }
+        presenter.addNewItem(Item.newItem(name: name,
+                                          url: url),
+                             category: currentCategory)
     }
 
     private func editItem(name: String, url: String) {

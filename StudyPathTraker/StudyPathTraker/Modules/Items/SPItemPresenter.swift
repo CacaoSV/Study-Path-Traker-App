@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jerti. All rights reserved.
 //
 
-
 protocol SPItemPresenterProtocol: SPBasePresenterProtocol {
     var presenter: SPItemPresenter { get }
     
