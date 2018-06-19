@@ -10,11 +10,16 @@ import UIKit
 
 class SPRoundedButton: UIButton {
 
+    @IBInspectable var backgroundColorButton: UIColor = UIColor.mainPurple {
+        didSet {
+            backgroundColor = backgroundColorButton
+        }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = frame.height / 2
         clipsToBounds = true
-        backgroundColor = UIColor.mainPurple
         tintColor = UIColor.white
     }
 }

@@ -27,14 +27,4 @@ class SPCategoryPresenter {
             delegate?.showError(error.localizedDescription)
         }
     }
-
-    func deleteCategory(_ category: CategoryItem) {
-        let result = PersistenceManager.deleteItem(item: category)
-        switch result {
-        case .success(_):
-            delegate?.didSuccessAction("Category deleted")
-        case .failure(let error):
-            delegate?.showError(error.localizedDescription)
-        }
-    }
 }

@@ -46,8 +46,6 @@ class SPItemsViewController: UIViewController {
         view.backgroundColor = .mainBackground
         presenter.delegate = self
         configureTableView()
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
-        self.view.addGestureRecognizer(longPressRecognizer)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +53,7 @@ class SPItemsViewController: UIViewController {
         getItems()
         selectedItem = nil
     }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,25 +83,25 @@ class SPItemsViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
 
-    @objc func updateItem(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == .began {
-            let touchPoint = longPressGestureRecognizer.location(in: view)
-            if let indexPath = tableView.indexPathForRow(at: touchPoint), let currentItems = items {
-                selectedItem = currentItems[indexPath.row]
-                performSegue(withIdentifier: Segues.ItemsSegues.showAddItem.rawValue, sender: nil)
-            }
-        }
-    }
-
     private func setItems(_ items: [Item]) {
         dataSource = SPCommonTableViewDataSource<Item, SPItemTableViewCell>(data: items, reuseIdentifier: cellConfiguration.identifier, deleteAllowed: true, deleteBlock: { [weak self] indexPath in
             let item = items[indexPath.row]
             self?.presenter.deleteItem(item: item)
-        }, configurationBlock: { cell, item, _ in
+        }, configurationBlock: { [weak self] cell, item, indexPath in
             cell.binding(item: item)
+            cell.editButton.tag = indexPath.row
+            cell.editButton.addTarget(self, action: #selector(self?.tappedEditButton(sender:)), for: .touchUpInside)
         })
         tableView.dataSource = dataSource
         refreshControl.endRefreshing()
+    }
+
+    @objc private func tappedEditButton(sender: SPRoundedButton) {
+        guard let currentItems = items else {
+            return
+        }
+        selectedItem = currentItems[sender.tag]
+        performSegue(withIdentifier: Segues.ItemsSegues.showAddItem.rawValue, sender: nil)
     }
 
     @objc private func getItems() {

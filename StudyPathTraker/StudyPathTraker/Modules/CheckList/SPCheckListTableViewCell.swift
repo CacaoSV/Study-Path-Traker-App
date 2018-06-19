@@ -11,7 +11,7 @@ import UIKit
 class SPCheckListTableViewCell: UITableViewCell {
     @IBOutlet weak var isReadySwitch: UISwitch!
     @IBOutlet private weak var nameMilestoneLabel: UILabel!
-
+    
     func binding(milestone: Milestone) {
         nameMilestoneLabel.text = milestone.name
         isReadySwitch.isOn = milestone.isDone

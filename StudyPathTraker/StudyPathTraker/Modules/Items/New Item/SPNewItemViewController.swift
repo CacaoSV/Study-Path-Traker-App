@@ -15,7 +15,7 @@ class SPNewItemViewController: UIViewController {
     @IBOutlet private weak var urlTextField: UITextField!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var addButton: SPRoundedButton!
-    
+
     // MARK: - Properties
 
     var item: Item?
@@ -44,7 +44,7 @@ class SPNewItemViewController: UIViewController {
         title = "Edit Item"
         nameTextField.text = item?.name
         urlTextField.text = item?.url
-        addButton.setTitle("Edit", for: .normal)
+        addButton.setTitle("EDIT", for: .normal)
     }
 
     @IBAction private func tappedAddButton(_ sender: Any) {
@@ -94,6 +94,7 @@ class SPNewItemViewController: UIViewController {
         }
         return false
     }
+
 }
 extension SPNewItemViewController: SPNewItemPresenterProtocol {
 

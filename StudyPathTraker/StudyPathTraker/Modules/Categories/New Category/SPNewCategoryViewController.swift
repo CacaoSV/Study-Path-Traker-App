@@ -13,6 +13,7 @@ class SPNewCategoryViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var addButton: SPRoundedButton!
     @IBOutlet private weak var nameCategoryTextField: UITextField!
+    @IBOutlet private weak var deleteButton: SPRoundedButton!
 
     // MARK: - Properties
 
@@ -35,7 +36,8 @@ class SPNewCategoryViewController: UIViewController {
     func configureViewToEdit() {
         title = "Edit Category"
         nameCategoryTextField.text = category?.name
-        addButton.setTitle("Edit", for: .normal)
+        addButton.setTitle("EDIT", for: .normal)
+        deleteButton.isHidden = false
     }
     
     // MARK: - Functions
@@ -56,6 +58,16 @@ class SPNewCategoryViewController: UIViewController {
         }
     }
 
+    @IBAction private func tappedDeleteButton(_ sender: Any) {
+        performDeleteCategory()
+    }
+
+    private func performDeleteCategory() {
+        guard let currentCategory = category else {
+            return
+        }
+        presenter.deleteCategory(currentCategory)
+    }
 }
 extension SPNewCategoryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

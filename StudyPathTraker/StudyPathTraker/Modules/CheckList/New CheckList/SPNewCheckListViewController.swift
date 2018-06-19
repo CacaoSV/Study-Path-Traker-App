@@ -45,7 +45,7 @@ class SPNewCheckListViewController: UIViewController {
     private func configureViewForEdit() {
         title = "Edit Milestone"
         nameMilestoneTextField.text = milestone?.name
-        addNewButton.setTitle("Edit", for: .normal)
+        addNewButton.setTitle("EDIT", for: .normal)
     }
 
     @IBAction private func tappedAddButton(_ sender: Any) {

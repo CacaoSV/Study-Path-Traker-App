@@ -12,6 +12,7 @@ class SPCategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource
 
     private let categoryCellReuseIdentifier: String = "CategoryCollectionCell"
     public var categories = [CategoryItem]()
+    public var selectedUpdateItemAction: ((_ itemPosition: Int) -> Void)?
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -25,7 +26,12 @@ class SPCategoriesCollectionViewDataSource: NSObject, UICollectionViewDataSource
         }
         let item = categories[indexPath.row]
         cell.binding(category: item)
+        cell.editButton.tag = indexPath.row
+        cell.editButton.addTarget(self, action: #selector(tappedEditButton(sender:)), for: .touchUpInside)
         return cell
     }
 
+    @objc private func tappedEditButton(sender: SPRoundedButton) {
+        selectedUpdateItemAction?(sender.tag)
+    }
 }

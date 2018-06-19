@@ -38,8 +38,6 @@ class SPCategoriesViewController: UIViewController {
         super.viewDidLoad()
         presenter.delegate = self
         title = "Categories"
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
-        self.view.addGestureRecognizer(longPressRecognizer)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,6 +74,10 @@ class SPCategoriesViewController: UIViewController {
             self?.categorySelected = self?.categories[index]
             self?.performSegue(withIdentifier: Segues.CategoriesSegues.showItems.rawValue, sender: nil)
         }
+        categoriesDataSource.selectedUpdateItemAction = { [weak self] index in
+            self?.categorySelected = self?.categories[index]
+            self?.performSegue(withIdentifier: Segues.CategoriesSegues.showAddCategory.rawValue, sender: nil)
+        }
         collectionView.dataSource = categoriesDataSource
         collectionView.delegate = flowLayout
     }
@@ -91,17 +93,6 @@ class SPCategoriesViewController: UIViewController {
         collectionView.reloadData()
         refreshControl.endRefreshing()
     }
-
-    @objc func updateItem(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == .began {
-            let touchPoint = longPressGestureRecognizer.location(in: view)
-            if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
-                categorySelected = categories[indexPath.row]
-                performSegue(withIdentifier: Segues.CategoriesSegues.showAddCategory.rawValue, sender: nil)
-            }
-        }
-    }
-
 }
 extension SPCategoriesViewController: SPCategoryPresenterProtocol {
     func didSuccessAction(_ message: String) {
