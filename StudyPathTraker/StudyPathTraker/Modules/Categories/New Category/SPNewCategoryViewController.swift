@@ -17,7 +17,7 @@ class SPNewCategoryViewController: UIViewController {
 
     // MARK: - Properties
 
-    var presenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
+    var newCategoryPresenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
     var isToEdit: Bool = false
     var category: CategoryItem?
 
@@ -27,7 +27,7 @@ class SPNewCategoryViewController: UIViewController {
         super.viewDidLoad()
         title = "Add New Category"
         nameCategoryTextField.becomeFirstResponder()
-        presenter.delegate = self
+        newCategoryPresenter.delegate = self
         if isToEdit {
             configureViewToEdit()
         }
@@ -49,9 +49,9 @@ class SPNewCategoryViewController: UIViewController {
     private func handleActionForCategory(categoryName: String) {
         if !categoryName.isEmpty {
             if isToEdit, let currentCategory = category {
-                presenter.updateCategoryName(name: categoryName, category: currentCategory)
+                newCategoryPresenter.updateCategoryName(name: categoryName, category: currentCategory)
             } else {
-                presenter.addCategory(CategoryItem.newCategory(name: categoryName))
+                newCategoryPresenter.addCategory(CategoryItem.newCategory(name: categoryName))
             }
         } else {
             showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
@@ -66,7 +66,7 @@ class SPNewCategoryViewController: UIViewController {
         guard let currentCategory = category else {
             return
         }
-        presenter.deleteCategory(currentCategory)
+        newCategoryPresenter.deleteCategory(currentCategory)
     }
 }
 extension SPNewCategoryViewController: UITextFieldDelegate {

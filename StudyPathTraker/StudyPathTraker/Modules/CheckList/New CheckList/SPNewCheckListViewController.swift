@@ -25,14 +25,14 @@ class SPNewCheckListViewController: UIViewController {
     var milestone: Milestone?
     var item: Item?
     var isToEdit = false
-    var presenter: SPNewCheckListPresenter = SPNewCheckListPresenter()
+    var newCheckListPresenter: SPNewCheckListPresenter = SPNewCheckListPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Milestone"
-        presenter.delegate = self
+        newCheckListPresenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -68,14 +68,14 @@ class SPNewCheckListViewController: UIViewController {
         guard let currentItem = item else {
             return
         }
-        presenter.addMilestone(Milestone.newMilestone(name: name), item: currentItem)
+        newCheckListPresenter.addMilestone(Milestone.newMilestone(name: name), item: currentItem)
     }
 
     private func editMilestone(name: String) {
         guard let currentMilestone = milestone else {
             return
         }
-        presenter.updateMilestone(currentMilestone, name: name)
+        newCheckListPresenter.updateMilestone(currentMilestone, name: name)
     }
 
 }

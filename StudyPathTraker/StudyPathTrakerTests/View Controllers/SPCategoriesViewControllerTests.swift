@@ -37,7 +37,7 @@ class SPCategoriesViewControllerTests: XCTestCase {
     }
     
     func testInitialization() {
-        XCTAssertNotNil(categoriesViewController.presenter)
+        XCTAssertNotNil(categoriesViewController.categoryPresenter)
     }
 
     func testFlowLayout() {

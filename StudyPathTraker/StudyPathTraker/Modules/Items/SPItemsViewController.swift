@@ -36,7 +36,7 @@ class SPItemsViewController: UIViewController {
     private let cellConfiguration = SPCommonCellConfiguration(identifier: "ItemCellIdentifier", height: 130.0)
     private var selectedItem: Item?
     var category: CategoryItem?
-    var presenter: SPItemPresenter = SPItemPresenter()
+    var itemPresenter: SPItemPresenter = SPItemPresenter()
 
     // MARK: - View Configuration
 
@@ -44,7 +44,7 @@ class SPItemsViewController: UIViewController {
         super.viewDidLoad()
         title = "Readings"
         view.backgroundColor = .mainBackground
-        presenter.delegate = self
+        itemPresenter.delegate = self
         configureTableView()
     }
 
@@ -86,7 +86,7 @@ class SPItemsViewController: UIViewController {
     private func setItems(_ items: [Item]) {
         dataSource = SPCommonTableViewDataSource<Item, SPItemTableViewCell>(data: items, reuseIdentifier: cellConfiguration.identifier, deleteAllowed: true, deleteBlock: { [weak self] indexPath in
             let item = items[indexPath.row]
-            self?.presenter.deleteItem(item: item)
+            self?.itemPresenter.deleteItem(item: item)
         }, configurationBlock: { [weak self] cell, item, indexPath in
             cell.binding(item: item)
             cell.editButton.tag = indexPath.row
@@ -107,7 +107,7 @@ class SPItemsViewController: UIViewController {
     @objc private func getItems() {
         refreshControl.beginRefreshing()
         if let categoryUID = category?.uid {
-            presenter.getItems(categoryUID: categoryUID)
+            itemPresenter.getItems(categoryUID: categoryUID)
         }
     }
 }

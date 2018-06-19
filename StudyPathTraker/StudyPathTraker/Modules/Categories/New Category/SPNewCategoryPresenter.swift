@@ -7,7 +7,7 @@
 //
 
 protocol SPNewCategoryPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPNewCategoryPresenter { get }
+    var newCategoryPresenter: SPNewCategoryPresenter { get }
     
 }
 

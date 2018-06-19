@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SPCategoryPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPCategoryPresenter { get }
+    var categoryPresenter: SPCategoryPresenter { get }
 
     func show(categories: [CategoryItem])
 }

@@ -21,14 +21,14 @@ class SPNewItemViewController: UIViewController {
     var item: Item?
     var category: CategoryItem?
     var isToEdit = false
-    var presenter: SPNewItemPresenter = SPNewItemPresenter()
+    var newItemPresenter: SPNewItemPresenter = SPNewItemPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Item"
-        presenter.delegate = self
+        newItemPresenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,8 +63,8 @@ class SPNewItemViewController: UIViewController {
         guard let currentCategory = category else {
             return
         }
-        presenter.addNewItem(Item.newItem(name: name,
-                                          url: url),
+        newItemPresenter.addNewItem(Item.newItem(name: name,
+                                                 url: url),
                              category: currentCategory)
     }
 
@@ -72,7 +72,7 @@ class SPNewItemViewController: UIViewController {
         guard let currentItem = item else {
             return
         }
-        presenter.updateItem(currentItem, name: name, url: url)
+        newItemPresenter.updateItem(currentItem, name: name, url: url)
     }
 
     private func verifyForm(name: String, url: String) -> Bool {

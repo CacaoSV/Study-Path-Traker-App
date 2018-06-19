@@ -20,7 +20,7 @@ class SPCategoriesViewController: UIViewController {
     var flowLayout: SPCategoriesCollectionViewFlowDelegate?
     fileprivate var categoriesDataSource = SPCategoriesCollectionViewDataSource()
     var refreshControl = UIRefreshControl()
-    var presenter: SPCategoryPresenter = SPCategoryPresenter()
+    var categoryPresenter: SPCategoryPresenter = SPCategoryPresenter()
     private var categorySelected: CategoryItem?
 
     // MARK: - View Controller LifeCycle
@@ -29,14 +29,14 @@ class SPCategoriesViewController: UIViewController {
         super.viewWillAppear(animated)
         setRefreshControl()
         setUpCollectionView()
-        presenter.getCategories()
+        categoryPresenter.getCategories()
         loadCategories()
         categorySelected = nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.delegate = self
+        categoryPresenter.delegate = self
         title = "Categories"
     }
 
@@ -84,7 +84,7 @@ class SPCategoriesViewController: UIViewController {
 
     @objc private func refreshList() {
         refreshControl.beginRefreshing()
-        presenter.getCategories()
+        categoryPresenter.getCategories()
         loadCategories()
     }
 
