@@ -570,7 +570,7 @@
                     </view>
                     <connections>
                         <outlet property="addNewButton" destination="Ifk-nZ-Fxh" id="krk-Er-vKA"/>
-                        <outlet property="nameMilestone" destination="387-UQ-hMt" id="3iD-nJ-tda"/>
+                        <outlet property="nameMilestoneTextField" destination="387-UQ-hMt" id="8jD-6M-Fzu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3N-hh-fS2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,9 +16,7 @@ class SPNewCheckListPresenter {
 
     func addMilestone(_ milestone: Milestone, item: Item) {
         let result = PersistenceManager.updateItem {
-            let currentMilestones = item.milestones
-            currentMilestones.append(milestone)
-            item.milestones = currentMilestones
+            item.milestones.append(milestone)
         }
         switch result {
         case .success(_):

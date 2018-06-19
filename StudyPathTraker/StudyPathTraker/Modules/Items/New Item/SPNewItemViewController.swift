@@ -69,9 +69,10 @@ class SPNewItemViewController: UIViewController {
     }
 
     private func editItem(name: String, url: String) {
-        if let currentItem = item {
-            presenter.updateItem(currentItem, name: name, url: url)
+        guard let currentItem = item else {
+            return
         }
+        presenter.updateItem(currentItem, name: name, url: url)
     }
 
     private func verifyForm(name: String, url: String) -> Bool {

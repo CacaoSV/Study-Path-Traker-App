@@ -16,9 +16,7 @@ class SPNewItemPresenter {
 
     func addNewItem(_ item: Item, category: CategoryItem) {
         let result = PersistenceManager.updateItem {
-            let currentItems = category.items
-            currentItems.append(item)
-            category.items = currentItems
+            category.items.append(item)
         }
         switch result {
         case .success(_):

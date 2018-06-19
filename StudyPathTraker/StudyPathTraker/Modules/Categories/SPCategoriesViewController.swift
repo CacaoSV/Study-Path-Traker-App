@@ -36,7 +36,7 @@ class SPCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPresenter()
+        presenter.delegate = self
         title = "Categories"
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -55,11 +55,7 @@ class SPCategoriesViewController: UIViewController {
     }
 
     // MARK: View Configuration
-
-    private func setupPresenter() {
-        presenter.delegate = self
-    }
-
+    
     func setRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(string: "Loading categories")
         refreshControl.addTarget(self, action: #selector(refreshList), for: .valueChanged)

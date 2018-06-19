@@ -17,7 +17,7 @@ class SPNewCheckListViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var nameMilestone: UITextField!
+    @IBOutlet private weak var nameMilestoneTextField: UITextField!
     @IBOutlet private weak var addNewButton: SPRoundedButton!
 
     // MARK: - Properties
@@ -44,21 +44,26 @@ class SPNewCheckListViewController: UIViewController {
 
     private func configureViewForEdit() {
         title = "Edit Milestone"
-        nameMilestone.text = milestone?.name
+        nameMilestoneTextField.text = milestone?.name
         addNewButton.setTitle("Edit", for: .normal)
     }
 
     @IBAction private func tappedAddButton(_ sender: Any) {
-        let name = nameMilestone.text ?? ""
-        if verifyForm(name: name) {
+        handleActionForMilestone(name: nameMilestoneTextField.text ?? "")
+    }
+
+    private func handleActionForMilestone(name: String) {
+        if !name.isEmpty {
             if isToEdit {
                 editMilestone(name: name)
             } else {
                 createMilestone(name: name)
             }
+        } else {
+            showMessage("Name is a required field", title: "😅")
+
         }
     }
-
     private func createMilestone(name: String) {
         guard let currentItem = item else {
             return
@@ -73,14 +78,6 @@ class SPNewCheckListViewController: UIViewController {
         presenter.updateMilestone(currentMilestone, name: name)
     }
 
-    private func verifyForm(name: String) -> Bool {
-        if !name.isEmpty {
-            return true
-        } else {
-            showMessage("Name is a required field", title: "😅")
-        }
-        return false
-    }
 }
 extension SPNewCheckListViewController: SPNewCheckListPresenterProtocol {
 

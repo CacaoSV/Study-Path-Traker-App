@@ -33,7 +33,7 @@ class SPNewCategoryViewController: UIViewController {
     }
 
     func configureViewToEdit() {
-        title = "Edit Item"
+        title = "Edit Category"
         nameCategoryTextField.text = category?.name
         addButton.setTitle("Edit", for: .normal)
     }
@@ -41,46 +41,25 @@ class SPNewCategoryViewController: UIViewController {
     // MARK: - Functions
 
     @IBAction private func tappedAddButton(_ sender: Any) {
-        let name: String = nameCategoryTextField.text ?? ""
-        if verifyForm(name: name) {
-            if isToEdit, let currentCategory = category {
-                updateCategory(name: name, category: currentCategory)
-            } else {
-                createCategory(name: name)
-            }
-        }
+       handleActionForCategory(categoryName: nameCategoryTextField.text ?? "")
     }
 
     private func handleActionForCategory(categoryName: String) {
-        if isToEdit, let currentCategory = category {
-            updateCategory(name: categoryName, category: currentCategory)
+        if !categoryName.isEmpty {
+            if isToEdit, let currentCategory = category {
+                presenter.updateCategoryName(name: categoryName, category: currentCategory)
+            } else {
+                presenter.addCategory(CategoryItem.newCategory(name: categoryName))
+            }
         } else {
-            createCategory(name: categoryName)
+            showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
         }
     }
 
-    private func verifyForm(name: String) -> Bool {
-        if !name.isEmpty {
-            return true
-        }
-        showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
-        return false
-    }
-
-    private func createCategory(name: String) {
-        presenter.addCategory(CategoryItem.newCategory(name: name))
-    }
-
-    private func updateCategory(name: String, category: CategoryItem) {
-        presenter.updateCategoryName(name: name, category: category)
-    }
 }
 extension SPNewCategoryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let name: String = textField.text ?? ""
-        if verifyForm(name: name) {
-            handleActionForCategory(categoryName: name)
-        }
+        handleActionForCategory(categoryName: textField.text ?? "")
         return true
     }
 }
