@@ -22,6 +22,9 @@
 		8B45BA6820C9DE0600FB62FC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6720C9DE0600FB62FC /* Persistence.swift */; };
 		8B45BA6A20C9DE2800FB62FC /* PersistenceServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */; };
 		8B45BA6C20C9DE4500FB62FC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45BA6B20C9DE4500FB62FC /* PersistenceManager.swift */; };
+		8B55388120D9567300915589 /* SPNewItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388020D9567300915589 /* SPNewItemPresenter.swift */; };
+		8B55388320D9580F00915589 /* SPNewCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */; };
+		8B55388520D9581A00915589 /* SPNewCheckListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */; };
 		8B562CBC20CAF6F900CFB66F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B562CBB20CAF6F900CFB66F /* Realm.framework */; };
 		8B5E0B0020CAF72A00DF42E0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */; };
 		8B675B3A20D01D47007D160D /* SPNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */; };
@@ -84,6 +87,9 @@
 		8B45BA6720C9DE0600FB62FC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8B45BA6920C9DE2800FB62FC /* PersistenceServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocols.swift; sourceTree = "<group>"; };
 		8B45BA6B20C9DE4500FB62FC /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		8B55388020D9567300915589 /* SPNewItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewItemPresenter.swift; sourceTree = "<group>"; };
+		8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCategoryPresenter.swift; sourceTree = "<group>"; };
+		8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCheckListPresenter.swift; sourceTree = "<group>"; };
 		8B562CB920CAF6F100CFB66F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B562CBB20CAF6F900CFB66F /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5E0AFF20CAF72A00DF42E0 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				8B27476120D2CAE000001670 /* SPNewItemViewController.swift */,
+				8B55388020D9567300915589 /* SPNewItemPresenter.swift */,
 			);
 			path = "New Item";
 			sourceTree = "<group>";
@@ -230,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				8B27476920D2EDEC00001670 /* SPNewCheckListViewController.swift */,
+				8B55388420D9581A00915589 /* SPNewCheckListPresenter.swift */,
 			);
 			path = "New CheckList";
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				8B675B3920D01D47007D160D /* SPNewCategoryViewController.swift */,
+				8B55388220D9580F00915589 /* SPNewCategoryPresenter.swift */,
 			);
 			path = "New Category";
 			sourceTree = "<group>";
@@ -621,6 +630,7 @@
 				8B45BA6C20C9DE4500FB62FC /* PersistenceManager.swift in Sources */,
 				8BA06C9E20C5B7DB00A1B56C /* SPDetailViewController.swift in Sources */,
 				8BD5DCFE20C097DA0078942E /* SPItemsViewController.swift in Sources */,
+				8B55388320D9580F00915589 /* SPNewCategoryPresenter.swift in Sources */,
 				8B27476C20D31CC600001670 /* SPCheckListPresenter.swift in Sources */,
 				8BE7354820D02B1200C0CF43 /* SPCategoryPresenter.swift in Sources */,
 				8B94606020BEFB3F00B9E976 /* SPCategoriesCollectionViewFlowDelegate.swift in Sources */,
@@ -633,9 +643,11 @@
 				8BA06CA320C5C09A00A1B56C /* SPDetailWebViewDelegate.swift in Sources */,
 				8B27476720D2D25B00001670 /* SPBasePresenterProtocol.swift in Sources */,
 				8B3C183C20C04FDD006A7D8A /* UIViewController+Extensions.swift in Sources */,
+				8B55388120D9567300915589 /* SPNewItemPresenter.swift in Sources */,
 				8BD5DD0020C098660078942E /* SPItemTableViewCell.swift in Sources */,
 				8BAD138420D16D9F0012B900 /* StoryboardNames.swift in Sources */,
 				8BA06C9620C09B0500A1B56C /* Item.swift in Sources */,
+				8B55388520D9581A00915589 /* SPNewCheckListPresenter.swift in Sources */,
 				8B675B3E20D02215007D160D /* SPRoundedButton.swift in Sources */,
 				8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */,
 				8B27476220D2CAE000001670 /* SPNewItemViewController.swift in Sources */,

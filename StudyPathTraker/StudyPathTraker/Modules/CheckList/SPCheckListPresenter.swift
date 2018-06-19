@@ -12,26 +12,11 @@ protocol SPCheckListPresenterProtocol: SPBasePresenterProtocol {
     var presenter: SPCheckListPresenter { get }
 
     func show(milestones: [Milestone])
-    func requestMilestones()
 }
 
 class SPCheckListPresenter {
     
     weak var delegate: SPCheckListPresenterProtocol?
-
-    func addMilestone(_ milestone: Milestone, item: Item) {
-        let result = PersistenceManager.updateItem {
-            let currentMilestones = item.milestones
-            currentMilestones.append(milestone)
-            item.milestones = currentMilestones
-        }
-        switch result {
-        case .success(_):
-            delegate?.didSuccessAction("Milestone succsessfully added")
-        case .failure(let error):
-            delegate?.showError(error.localizedDescription)
-        }
-    }
 
     func deleteMilestone(_ milestone: Milestone) {
         let result = PersistenceManager.deleteItem(item: milestone)
@@ -43,12 +28,11 @@ class SPCheckListPresenter {
         }
     }
 
-    func updateMilestone(_ milestone: Milestone, name: String, isDone: Bool = false, item: Item) {
+    func updateMilestone(_ milestone: Milestone, name: String, isDone: Bool = false) {
         let result = PersistenceManager.updateItem {
             milestone.name = name 
             milestone.isDone = isDone
         }
-        // WIP Update intenally the progress of the item
         switch result {
         case .success(_):
             delegate?.didSuccessAction("Item updated")

@@ -158,6 +158,7 @@
                         <viewLayoutGuide key="safeArea" id="Afd-Il-RHc"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="w6a-bh-iwH" id="SCk-0f-oOy"/>
                         <outlet property="nameCategoryTextField" destination="a6I-qi-OTN" id="9JZ-FF-jI5"/>
                     </connections>
                 </viewController>

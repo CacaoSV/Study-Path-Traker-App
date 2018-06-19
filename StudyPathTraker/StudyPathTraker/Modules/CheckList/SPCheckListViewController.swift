@@ -47,14 +47,18 @@ class SPCheckListViewController: UIViewController {
         title = "Milestones"
         configureTableView()
         presenter.delegate = self
-        requestMilestones()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getMilestones()
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let newMilestoneViewController = segue.destination  as? SPNewCheckListViewController {
-            newMilestoneViewController.delegate = self
+            newMilestoneViewController.item = item
             if let milestoneToUpdate = selectedMilestone {
                 newMilestoneViewController.milestone = milestoneToUpdate
                 newMilestoneViewController.isToEdit = true
@@ -72,7 +76,11 @@ class SPCheckListViewController: UIViewController {
     }
 
     @objc private func getMilestones() {
-        requestMilestones()
+        refreshControl.beginRefreshing()
+        guard let itemUID = item?.uid else {
+            return
+        }
+        presenter.getMilestones(itemUID: itemUID)
         setMilestones()
     }
 
@@ -94,36 +102,12 @@ class SPCheckListViewController: UIViewController {
         tableView.dataSource = dataSource
         refreshControl.endRefreshing()
     }
+
     @objc private func onSwitchValueChanged(_ switchObject: UISwitch) {
-        if let currentMilestones = milestones, let currentItem = item {
+        if let currentMilestones = milestones {
             let milestone = currentMilestones[switchObject.tag]
-            presenter.updateMilestone(milestone, name: milestone.name ?? "", isDone: switchObject.isOn, item: currentItem)
+            presenter.updateMilestone(milestone, name: milestone.name ?? "", isDone: switchObject.isOn)
         }
-    }
-}
-extension SPCheckListViewController: SPCheckListDelegate {
-
-    func didAddNewMilestone(name: String) {
-        navigationController?.popViewController(animated: true)
-        guard let currentItem = item else {
-            return
-        }
-        let milestone = Milestone(uid: NSUUID().uuidString,
-                                  isDone: false,
-                                  name: name)
-        presenter.addMilestone(milestone,
-                               item: currentItem)
-    }
-
-    func didEditMilestone(name: String, milestone: Milestone) {
-        navigationController?.popViewController(animated: true)
-        guard let currentItem = item else {
-            return
-        }
-        presenter.updateMilestone(milestone,
-                                  name: name,
-                                  isDone: milestone.isDone,
-                                  item: currentItem)
     }
 }
 extension  SPCheckListViewController: SPCheckListPresenterProtocol {
@@ -132,15 +116,8 @@ extension  SPCheckListViewController: SPCheckListPresenterProtocol {
         self.milestones = milestones
     }
 
-    func requestMilestones() {
-        guard let itemUID = item?.uid else {
-            return
-        }
-        presenter.getMilestones(itemUID: itemUID)
-    }
-
     func didSuccessAction(_ message: String) {
-        requestMilestones()
+        getMilestones()
         showMessage(message)
     }
 

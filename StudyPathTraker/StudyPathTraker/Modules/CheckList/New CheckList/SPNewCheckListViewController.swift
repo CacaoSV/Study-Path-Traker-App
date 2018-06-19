@@ -23,14 +23,16 @@ class SPNewCheckListViewController: UIViewController {
     // MARK: - Properties
 
     var milestone: Milestone?
-    weak var delegate: SPCheckListDelegate?
+    var item: Item?
     var isToEdit = false
+    var presenter: SPNewCheckListPresenter = SPNewCheckListPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Milestone"
+        presenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,11 +50,14 @@ class SPNewCheckListViewController: UIViewController {
 
     @IBAction private func addNewMilestione(_ sender: Any) {
         let name = nameMilestone.text ?? ""
+        guard let currentItem = item else {
+            return
+        }
         if verifyForm(name: name) {
             if isToEdit {
                 editMilestone(name: name)
             } else {
-                delegate?.didAddNewMilestone(name: name)
+                presenter.addMilestone(createNewMilestone(name: name), item: currentItem)
             }
         }
     }
@@ -60,7 +65,11 @@ class SPNewCheckListViewController: UIViewController {
         guard let currentMilestone = milestone else {
             return
         }
-        delegate?.didEditMilestone(name: name, milestone: currentMilestone)
+        presenter.updateMilestone(currentMilestone, name: name)
+    }
+
+    private func createNewMilestone(name: String) -> Milestone {
+        return Milestone(uid: NSUUID().uuidString, isDone: false, name: name)
     }
     private func verifyForm(name: String) -> Bool {
         if !name.isEmpty {
@@ -69,5 +78,15 @@ class SPNewCheckListViewController: UIViewController {
             showMessage("Name is a required field", title: "😅")
         }
         return false
+    }
+}
+extension SPNewCheckListViewController: SPNewCheckListPresenterProtocol {
+
+    func didSuccessAction(_ message: String) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func showError(_ message: String) {
+        showError(message)
     }
 }

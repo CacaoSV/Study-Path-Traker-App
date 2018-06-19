@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol SPItemDelegate: class {
-    func didAddNewItem(name: String, url: String)
-    func didEditItem(name: String, url: String, item: Item?)
-}
-
 class SPNewItemViewController: UIViewController {
 
     // MARK: - Outlets
@@ -24,14 +19,16 @@ class SPNewItemViewController: UIViewController {
     // MARK: - Properties
 
     var item: Item?
-    weak var delegate: SPItemDelegate?
+    var category: CategoryItem?
     var isToEdit = false
+    var presenter: SPNewItemPresenter = SPNewItemPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Item"
+        presenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,14 +55,27 @@ class SPNewItemViewController: UIViewController {
             if isToEdit {
                 editItem(name: name, url: url)
             } else {
-                delegate?.didAddNewItem(name: name, url: url)
+                guard let currentCategory = category else {
+                    return
+                }
+                presenter.addNewItem(createNewItem(name: name,
+                                                   url: url),
+                                     category: currentCategory)
             }
         }
     }
 
+    private func createNewItem(name: String, url: String) -> Item {
+        return Item(uid: NSUUID().uuidString,
+                    name: name, progress: 0.0,
+                    url: url,
+                    milestones: [Milestone]()
+        )
+    }
+
     private func editItem(name: String, url: String) {
-        if verifyForm(name: name, url: url) {
-            delegate?.didEditItem(name: name, url: url, item: item)
+        if let currentItem = item {
+            presenter.updateItem(currentItem, name: name, url: url)
         }
     }
 
@@ -87,5 +97,15 @@ class SPNewItemViewController: UIViewController {
             return UIApplication.shared.canOpenURL(url)
         }
         return false
+    }
+}
+extension SPNewItemViewController: SPNewItemPresenterProtocol {
+
+    func didSuccessAction(_ message: String) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func showError(_ message: String) {
+        showError(message)
     }
 }

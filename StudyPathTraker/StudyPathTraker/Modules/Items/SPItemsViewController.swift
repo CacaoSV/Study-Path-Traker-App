@@ -46,11 +46,15 @@ class SPItemsViewController: UIViewController {
         view.backgroundColor = .mainBackground
         presenter.delegate = self
         configureTableView()
-        getItems()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getItems()
+        selectedItem = nil
+    }
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,11 +63,14 @@ class SPItemsViewController: UIViewController {
         }
 
         if let newItemViewController = segue.destination  as? SPNewItemViewController {
-            newItemViewController.delegate = self
+            guard let currentCategory = category else {
+                return
+            }
             if let itemToUpdate = selectedItem {
                 newItemViewController.item = itemToUpdate
                 newItemViewController.isToEdit = true
             }
+            newItemViewController.category = currentCategory
         }
     }
 
@@ -100,26 +107,9 @@ class SPItemsViewController: UIViewController {
 
     @objc private func getItems() {
         refreshControl.beginRefreshing()
-        requestItems()
-    }
-}
-extension SPItemsViewController: SPItemDelegate {
-    func didEditItem(name: String, url: String, item: Item?) {
-        navigationController?.popViewController(animated: true)
-        guard let updatedItem = item else {
-            return
+        if let categoryUID = category?.uid {
+            presenter.getItems(categoryUID: categoryUID)
         }
-        presenter.updateItem(item: updatedItem, name: name, url: url)
-    }
-
-    func didAddNewItem(name: String, url: String) {
-        guard let currentCategory = category else {
-            return
-        }
-        navigationController?.popViewController(animated: true)
-        let item = Item(uid: NSUUID().uuidString, name: name, progress: 0.0, url: url, milestones: [Milestone]())
-        presenter.addNewItem(item: item, category: currentCategory)
-        requestItems()
     }
 }
 extension SPItemsViewController: SPItemPresenterProtocol {
@@ -127,14 +117,8 @@ extension SPItemsViewController: SPItemPresenterProtocol {
         self.items = items
     }
 
-    func requestItems() {
-        if let categoryUID = category?.uid {
-            presenter.getItems(categoryUID: categoryUID)
-        }
-    }
-
     func didSuccessAction(_ message: String) {
-        requestItems()
+        getItems()
         showMessage(message)
     }
 

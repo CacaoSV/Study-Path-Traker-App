@@ -8,19 +8,17 @@
 
 import UIKit
 
-protocol SPCategoryDelegate: class {
-    func didAddNewCategory(name: String)
-}
-
 class SPNewCategoryViewController: UIViewController {
 
     // MARK: - Outlets
-
+    @IBOutlet private weak var addButton: SPRoundedButton!
     @IBOutlet private weak var nameCategoryTextField: UITextField!
 
     // MARK: - Properties
 
-    weak var delegate: SPCategoryDelegate?
+    var presenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
+    var isToEdit: Bool = false
+    var category: CategoryItem?
 
     // MARK: - View Controller LifeCycle
 
@@ -28,22 +26,42 @@ class SPNewCategoryViewController: UIViewController {
         super.viewDidLoad()
         title = "Add New Category"
         nameCategoryTextField.becomeFirstResponder()
+        presenter.delegate = self
+        if isToEdit {
+            configureViewToEdit()
+        }
     }
 
+    func configureViewToEdit() {
+        title = "Edit Item"
+        nameCategoryTextField.text = category?.name
+        addButton.setTitle("Edit", for: .normal)
+    }
+    
     // MARK: - Functions
 
     @IBAction private func addNewCategory(_ sender: Any) {
         let name: String = nameCategoryTextField.text ?? ""
-        createCategory(name: name)
-    }
-
-    func createCategory(name: String) {
         if !name.isEmpty {
             self.navigationController?.popViewController(animated: true)
-            delegate?.didAddNewCategory(name: name)
+            if isToEdit, let currentCategory = category {
+                presenter.updateCategoryName(name: name,
+                                             category: currentCategory)
+            } else {
+
+                presenter.addCategory(createCategory(name: name))
+            }
         } else {
             showMessage("You need to write a name to add the category", title: SPAlertStrings.errorText)
         }
+    }
+
+    func createCategory(name: String) -> CategoryItem {
+       return CategoryItem(name: name,
+                           progress: 0.0,
+                           uid: NSUUID().uuidString,
+                           items: [Item]()
+        )
     }
 
 }
@@ -51,5 +69,16 @@ extension SPNewCategoryViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addNewCategory(self)
         return true
+    }
+}
+
+extension SPNewCategoryViewController: SPNewCategoryPresenterProtocol {
+
+    func didSuccessAction(_ message: String) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func showError(_ message: String) {
+        showError(message)
     }
 }

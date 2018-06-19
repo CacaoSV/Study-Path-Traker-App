@@ -29,20 +29,27 @@ class SPCategoriesViewController: UIViewController {
         super.viewWillAppear(animated)
         setRefreshControl()
         setUpCollectionView()
-        requestCategories()
+        presenter.getCategories()
         loadCategories()
+        categorySelected = nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPresenter()
         title = "Categories"
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
+        self.view.addGestureRecognizer(longPressRecognizer)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let newCategoryViewController = segue.destination  as? SPNewCategoryViewController {
-            newCategoryViewController.delegate = self
-        } else if let itemsViewController = segue.destination as? SPItemsViewController {
+            if categorySelected != nil {
+                newCategoryViewController.isToEdit = true
+                newCategoryViewController.category = categorySelected
+            }
+        }
+        if let itemsViewController = segue.destination as? SPItemsViewController {
             itemsViewController.category = categorySelected
         }
     }
@@ -78,7 +85,7 @@ class SPCategoriesViewController: UIViewController {
     }
 
     @objc private func refreshList(_ sender: Any) {
-        requestCategories()
+        presenter.getCategories()
         loadCategories()
     }
 
@@ -88,13 +95,17 @@ class SPCategoriesViewController: UIViewController {
         collectionView.reloadData()
         refreshControl.endRefreshing()
     }
-    
-}
-extension SPCategoriesViewController: SPCategoryDelegate {
 
-    func didAddNewCategory(name: String) {
-        presenter.addNewCategory(categoryName: name)
+    @objc func updateItem(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == .began {
+            let touchPoint = longPressGestureRecognizer.location(in: view)
+            if let indexPath = collectionView.indexPathForItem(at: touchPoint) {
+                categorySelected = categories[indexPath.row]
+                performSegue(withIdentifier: Segues.CategoriesSegues.showAddCategory.rawValue, sender: nil)
+            }
+        }
     }
+
 }
 extension SPCategoriesViewController: SPCategoryPresenterProtocol {
     func didSuccessAction(_ message: String) {
@@ -108,9 +119,5 @@ extension SPCategoriesViewController: SPCategoryPresenterProtocol {
 
     func show(categories: [CategoryItem]) {
         self.categories = categories
-    }
-
-    func requestCategories() {
-        presenter.getCategories()
     }
 }

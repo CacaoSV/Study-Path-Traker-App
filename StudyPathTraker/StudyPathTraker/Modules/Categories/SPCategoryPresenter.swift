@@ -12,24 +12,11 @@ protocol SPCategoryPresenterProtocol: SPBasePresenterProtocol {
     var presenter: SPCategoryPresenter { get }
 
     func show(categories: [CategoryItem])
-    func requestCategories()
 }
 
 class SPCategoryPresenter {
 
     weak var delegate: SPCategoryPresenterProtocol?
-
-    func addNewCategory(categoryName: String) {
-        let items = [Item]()
-        let category: CategoryItem = CategoryItem(name: categoryName, progress: 0.0, uid: NSUUID().uuidString, items: items)
-        let result = PersistenceManager.saveItem(item: category)
-        switch result {
-        case .success(_):
-            delegate?.didSuccessAction("Category succsessfully added")
-        case .failure(let error):
-            delegate?.showError(error.localizedDescription)
-        }
-    }
 
     func getCategories() {
         let result = PersistenceManager.getAllItems(type: CategoryItem.self, filter: nil)
@@ -46,18 +33,6 @@ class SPCategoryPresenter {
         switch result {
         case .success(_):
             delegate?.didSuccessAction("Category deleted")
-        case .failure(let error):
-            delegate?.showError(error.localizedDescription)
-        }
-    }
-
-    func updateCategoryName(name: String, category: CategoryItem) {
-        let result = PersistenceManager.updateItem {
-            category.name = name
-        }
-        switch result {
-        case .success(_):
-            delegate?.didSuccessAction("Category updated")
         case .failure(let error):
             delegate?.showError(error.localizedDescription)
         }
