@@ -43,6 +43,7 @@
 		8B9B45BD20D9B36200AB6185 /* SPItemPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B45BC20D9B36200AB6185 /* SPItemPresenterTests.swift */; };
 		8B9B45C120D9BAF100AB6185 /* SPNewItemPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B45C020D9BAF100AB6185 /* SPNewItemPresenterTests.swift */; };
 		8B9B45C320DAA43100AB6185 /* SPNewCheckListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B45C220DAA43100AB6185 /* SPNewCheckListPresenterTests.swift */; };
+		8B9B45C520DAA86700AB6185 /* SPCheckListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9B45C420DAA86700AB6185 /* SPCheckListPresenterTests.swift */; };
 		8BA06C9420C09A5800A1B56C /* SPCommonTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */; };
 		8BA06C9620C09B0500A1B56C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9520C09B0500A1B56C /* Item.swift */; };
 		8BA06C9920C09F3500A1B56C /* SPCommonCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */; };
@@ -116,6 +117,7 @@
 		8B9B45BC20D9B36200AB6185 /* SPItemPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPItemPresenterTests.swift; sourceTree = "<group>"; };
 		8B9B45C020D9BAF100AB6185 /* SPNewItemPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewItemPresenterTests.swift; sourceTree = "<group>"; };
 		8B9B45C220DAA43100AB6185 /* SPNewCheckListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewCheckListPresenterTests.swift; sourceTree = "<group>"; };
+		8B9B45C420DAA86700AB6185 /* SPCheckListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCheckListPresenterTests.swift; sourceTree = "<group>"; };
 		8BA06C9320C09A5800A1B56C /* SPCommonTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonTableViewDataSource.swift; sourceTree = "<group>"; };
 		8BA06C9520C09B0500A1B56C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8BA06C9820C09F3500A1B56C /* SPCommonCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCommonCellConfiguration.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				8B9B45BC20D9B36200AB6185 /* SPItemPresenterTests.swift */,
 				8B9B45C020D9BAF100AB6185 /* SPNewItemPresenterTests.swift */,
 				8B9B45C220DAA43100AB6185 /* SPNewCheckListPresenterTests.swift */,
+				8B9B45C420DAA86700AB6185 /* SPCheckListPresenterTests.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 			files = (
 				8BAD138220D16D170012B900 /* SPCategoriesViewControllerTests.swift in Sources */,
 				8B9B45C320DAA43100AB6185 /* SPNewCheckListPresenterTests.swift in Sources */,
+				8B9B45C520DAA86700AB6185 /* SPCheckListPresenterTests.swift in Sources */,
 				8BAD138B20D17BB70012B900 /* SPCategoryPresenterTests.swift in Sources */,
 				8B9B45C120D9BAF100AB6185 /* SPNewItemPresenterTests.swift in Sources */,
 				8B9B45BD20D9B36200AB6185 /* SPItemPresenterTests.swift in Sources */,
