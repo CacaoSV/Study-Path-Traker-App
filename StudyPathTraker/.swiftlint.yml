@@ -27,7 +27,6 @@ opt_in_rules: # some rules are only opt-in
   - operator_usage_whitespace
   - overridden_super_call
   - private_action
-  - private_outlet
   - prohibited_super_call
   - redundant_nil_coalescing
   - sorted_first_last
@@ -112,3 +111,4 @@ custom_rules:
 disabled_rules: # rule identifiers to exclude from running
  - line_length
  - trailing_whitespace
+ - private_outlet

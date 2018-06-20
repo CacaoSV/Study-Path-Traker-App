@@ -11,9 +11,9 @@ import UIKit
 class SPNewCategoryViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet private weak var addButton: SPRoundedButton!
-    @IBOutlet private weak var nameCategoryTextField: UITextField!
-    @IBOutlet private weak var deleteButton: SPRoundedButton!
+    @IBOutlet weak var addButton: SPRoundedButton!
+    @IBOutlet weak var nameCategoryTextField: UITextField!
+    @IBOutlet weak var deleteButton: SPRoundedButton!
 
     // MARK: - Properties
 
@@ -46,7 +46,7 @@ class SPNewCategoryViewController: UIViewController {
        handleActionForCategory(categoryName: nameCategoryTextField.text ?? "")
     }
 
-    private func handleActionForCategory(categoryName: String) {
+    func handleActionForCategory(categoryName: String) {
         if !categoryName.isEmpty {
             if isToEdit, let currentCategory = category {
                 newCategoryPresenter.updateCategoryName(name: categoryName, category: currentCategory)
@@ -62,7 +62,7 @@ class SPNewCategoryViewController: UIViewController {
         performDeleteCategory()
     }
 
-    private func performDeleteCategory() {
+    func performDeleteCategory() {
         guard let currentCategory = category else {
             return
         }

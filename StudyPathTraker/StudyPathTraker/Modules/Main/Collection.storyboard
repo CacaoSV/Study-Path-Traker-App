@@ -127,8 +127,7 @@
         <!--New Category View Controller-->
         <scene sceneID="CEZ-HK-NcJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HCc-Qs-UMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="fyt-vc-CM1" customClass="SPNewCategoryViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPNewCategoryViewController" id="fyt-vc-CM1" customClass="SPNewCategoryViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G1g-mx-hl2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,13 +199,14 @@
                         <outlet property="nameCategoryTextField" destination="a6I-qi-OTN" id="9JZ-FF-jI5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCc-Qs-UMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="972.41379310344837"/>
         </scene>
         <!--Items View Controller-->
         <scene sceneID="ENQ-i1-hQ1">
             <objects>
-                <viewController id="XnF-rI-FDD" customClass="SPItemsViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPItemsViewController" id="XnF-rI-FDD" customClass="SPItemsViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98T-F1-UPT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
         <!--Detail View Controller-->
         <scene sceneID="7tR-1y-MaW">
             <objects>
-                <viewController id="No5-MP-dGH" customClass="SPDetailViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPDetailViewController" id="No5-MP-dGH" customClass="SPDetailViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdC-ML-WwQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -402,7 +402,7 @@
         <!--Check List View Controller-->
         <scene sceneID="4Eq-T8-n6q">
             <objects>
-                <viewController id="B9Z-6r-USd" customClass="SPCheckListViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPCheckListViewController" id="B9Z-6r-USd" customClass="SPCheckListViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvT-Cs-mJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
