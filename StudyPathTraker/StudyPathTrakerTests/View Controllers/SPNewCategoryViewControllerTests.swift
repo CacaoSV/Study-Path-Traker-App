@@ -36,6 +36,7 @@ class SPNewCategoryViewControllerTests: XCTestCase, SPCategoryPresenterProtocol 
         category = nil
         categories = nil
         expectation = nil
+        PersistenceManager.deleteAllItems()
         super.tearDown()
     }
 

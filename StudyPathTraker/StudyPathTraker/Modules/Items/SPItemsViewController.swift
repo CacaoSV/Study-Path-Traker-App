@@ -12,7 +12,7 @@ class SPItemsViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private var itemsTableViewDelegate: SPCommonTableViewDelegate! {
         didSet {
             itemsTableViewDelegate.selectedIndex = { [weak self] index in
@@ -24,9 +24,9 @@ class SPItemsViewController: UIViewController {
     
     // MARK: - Properties
 
-    private var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
+    var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
     private var refreshControl = UIRefreshControl()
-    private var items: [Item]? {
+    var items: [Item]? {
         didSet {
             if let settedItems = items {
                 setItems(settedItems)
@@ -83,7 +83,7 @@ class SPItemsViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
 
-    private func setItems(_ items: [Item]) {
+    func setItems(_ items: [Item]) {
         dataSource = SPCommonTableViewDataSource<Item, SPItemTableViewCell>(data: items, reuseIdentifier: cellConfiguration.identifier, deleteAllowed: true, deleteBlock: { [weak self] indexPath in
             let item = items[indexPath.row]
             self?.itemPresenter.deleteItem(item: item)

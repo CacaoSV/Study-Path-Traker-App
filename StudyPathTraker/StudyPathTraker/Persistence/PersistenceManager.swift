@@ -159,7 +159,7 @@ struct PersistenceManager {
     static private func getRealm() -> Result<Realm> {
         do {
             let realm: Realm
-            if NSClassFromString("XCTest") != nil {
+            if NSClassFromString("XCTestCase") != nil {
                  realm = try Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
             } else {
                  realm = try Realm()

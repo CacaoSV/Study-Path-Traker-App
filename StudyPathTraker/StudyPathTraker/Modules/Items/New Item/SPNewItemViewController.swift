@@ -12,9 +12,9 @@ class SPNewItemViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var urlTextField: UITextField!
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var addButton: SPRoundedButton!
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addButton: SPRoundedButton!
 
     // MARK: - Properties
 
@@ -40,7 +40,7 @@ class SPNewItemViewController: UIViewController {
 
     // MARK: - Functions
 
-    private func configureViewForEdit() {
+    func configureViewForEdit() {
         title = "Edit Item"
         nameTextField.text = item?.name
         urlTextField.text = item?.url
@@ -59,7 +59,7 @@ class SPNewItemViewController: UIViewController {
             }
         }
     }
-    private func createItem(name: String, url: String) {
+    func createItem(name: String, url: String) {
         guard let currentCategory = category else {
             return
         }
@@ -68,7 +68,7 @@ class SPNewItemViewController: UIViewController {
                              category: currentCategory)
     }
 
-    private func editItem(name: String, url: String) {
+    func editItem(name: String, url: String) {
         guard let currentItem = item else {
             return
         }

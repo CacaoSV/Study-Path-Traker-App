@@ -32,7 +32,7 @@ class SPCheckListViewController: UIViewController {
     var selectedMilestone: Milestone?
     private var dataSource: SPCommonTableViewDataSource<Milestone, SPCheckListTableViewCell>?
     private var refreshControl = UIRefreshControl()
-    private var milestones: [Milestone]? {
+    var milestones: [Milestone]? {
         didSet {
             setMilestones()
         }
@@ -75,7 +75,7 @@ class SPCheckListViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
 
-    @objc private func getMilestones() {
+    @objc func getMilestones() {
         refreshControl.beginRefreshing()
         guard let itemUID = item?.uid else {
             return
@@ -84,7 +84,7 @@ class SPCheckListViewController: UIViewController {
         setMilestones()
     }
 
-    private func setMilestones() {
+    func setMilestones() {
         guard let currentMilestones = milestones else {
             refreshControl.endRefreshing()
             return
@@ -103,7 +103,7 @@ class SPCheckListViewController: UIViewController {
         refreshControl.endRefreshing()
     }
 
-    @objc private func onSwitchValueChanged(_ switchObject: UISwitch) {
+    @objc func onSwitchValueChanged(_ switchObject: UISwitch) {
         if let currentMilestones = milestones {
             let milestone = currentMilestones[switchObject.tag]
             checkListPresenter.updateMilestone(milestone, name: milestone.name ?? "", isDone: switchObject.isOn)

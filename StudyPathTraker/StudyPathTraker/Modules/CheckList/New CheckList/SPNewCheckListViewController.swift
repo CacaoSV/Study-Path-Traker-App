@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol SPCheckListDelegate: class {
-    func didAddNewMilestone(name: String)
-    func didEditMilestone(name: String, milestone: Milestone)
-}
-
 class SPNewCheckListViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var nameMilestoneTextField: UITextField!
-    @IBOutlet private weak var addNewButton: SPRoundedButton!
+    @IBOutlet weak var nameMilestoneTextField: UITextField!
+    @IBOutlet weak var addNewButton: SPRoundedButton!
 
     // MARK: - Properties
 
@@ -42,7 +37,7 @@ class SPNewCheckListViewController: UIViewController {
         }
     }
 
-    private func configureViewForEdit() {
+    func configureViewForEdit() {
         title = "Edit Milestone"
         nameMilestoneTextField.text = milestone?.name
         addNewButton.setTitle("EDIT", for: .normal)
@@ -52,7 +47,7 @@ class SPNewCheckListViewController: UIViewController {
         handleActionForMilestone(name: nameMilestoneTextField.text ?? "")
     }
 
-    private func handleActionForMilestone(name: String) {
+    func handleActionForMilestone(name: String) {
         if !name.isEmpty {
             if isToEdit {
                 editMilestone(name: name)
@@ -61,9 +56,9 @@ class SPNewCheckListViewController: UIViewController {
             }
         } else {
             showMessage("Name is a required field", title: "😅")
-
         }
     }
+    
     private func createMilestone(name: String) {
         guard let currentItem = item else {
             return

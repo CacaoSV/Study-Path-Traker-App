@@ -33,6 +33,7 @@ class SPNewCategoryPresenterTests: XCTestCase, SPNewCategoryPresenterProtocol, S
         category = nil
         message = nil
         categories = nil
+        PersistenceManager.deleteAllItems()
         super.tearDown()
     }
 

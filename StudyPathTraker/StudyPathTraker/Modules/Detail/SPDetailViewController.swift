@@ -13,9 +13,9 @@ class SPDetailViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var webView: WKWebView!
-    @IBOutlet private weak var totalProgressView: UIProgressView!
-    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var totalProgressView: UIProgressView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     // MARK: - Properties
 
