@@ -10,6 +10,7 @@ import UIKit
 
 class SPCategoryCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var editButton: SPRoundedButton!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var totalProgressView: UIProgressView!
     @IBInspectable var cornerRadius: CGFloat = 0 {

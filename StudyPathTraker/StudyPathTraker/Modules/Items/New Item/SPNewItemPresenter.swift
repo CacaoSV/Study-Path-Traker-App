@@ -7,7 +7,7 @@
 //
 
 protocol SPNewItemPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPNewItemPresenter { get }
+    var newItemPresenter: SPNewItemPresenter { get }
 }
 
 class SPNewItemPresenter {

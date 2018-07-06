@@ -12,23 +12,23 @@ class SPNewItemViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var urlTextField: UITextField!
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var addButton: SPRoundedButton!
-    
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addButton: SPRoundedButton!
+
     // MARK: - Properties
 
     var item: Item?
     var category: CategoryItem?
     var isToEdit = false
-    var presenter: SPNewItemPresenter = SPNewItemPresenter()
+    var newItemPresenter: SPNewItemPresenter = SPNewItemPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Item"
-        presenter.delegate = self
+        newItemPresenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +40,11 @@ class SPNewItemViewController: UIViewController {
 
     // MARK: - Functions
 
-    private func configureViewForEdit() {
+    func configureViewForEdit() {
         title = "Edit Item"
         nameTextField.text = item?.name
         urlTextField.text = item?.url
-        addButton.setTitle("Edit", for: .normal)
+        addButton.setTitle("EDIT", for: .normal)
     }
 
     @IBAction private func tappedAddButton(_ sender: Any) {
@@ -59,20 +59,20 @@ class SPNewItemViewController: UIViewController {
             }
         }
     }
-    private func createItem(name: String, url: String) {
+    func createItem(name: String, url: String) {
         guard let currentCategory = category else {
             return
         }
-        presenter.addNewItem(Item.newItem(name: name,
-                                          url: url),
+        newItemPresenter.addNewItem(Item.newItem(name: name,
+                                                 url: url),
                              category: currentCategory)
     }
 
-    private func editItem(name: String, url: String) {
+    func editItem(name: String, url: String) {
         guard let currentItem = item else {
             return
         }
-        presenter.updateItem(currentItem, name: name, url: url)
+        newItemPresenter.updateItem(currentItem, name: name, url: url)
     }
 
     private func verifyForm(name: String, url: String) -> Bool {
@@ -94,6 +94,7 @@ class SPNewItemViewController: UIViewController {
         }
         return false
     }
+
 }
 extension SPNewItemViewController: SPNewItemPresenterProtocol {
 

@@ -7,7 +7,7 @@
 //
 
 protocol SPNewCheckListPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPNewCheckListPresenter { get }
+    var newCheckListPresenter: SPNewCheckListPresenter { get }
 }
 
 class SPNewCheckListPresenter {

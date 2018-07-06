@@ -7,7 +7,7 @@
 //
 
 protocol SPItemPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPItemPresenter { get }
+    var itemPresenter: SPItemPresenter { get }
     
     func show(items: [Item])
 }

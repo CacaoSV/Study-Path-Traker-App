@@ -11,7 +11,8 @@ import UIKit
 class SPItemTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var totalProgressView: UIProgressView!
-
+    @IBOutlet weak var editButton: SPRoundedButton!
+    
     func binding(item: Item) {
         nameLabel.text = item.name
         totalProgressView.progress = item.progress

@@ -9,35 +9,55 @@
 import XCTest
 @testable import StudyPathTraker
 
-class SPNewCategoryPresenterTests: XCTestCase, SPNewCategoryPresenterProtocol {
-    var presenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
+class SPNewCategoryPresenterTests: XCTestCase, SPNewCategoryPresenterProtocol, SPCategoryPresenterProtocol {
+
+    var categoryPresenter: SPCategoryPresenter = SPCategoryPresenter()
+    var newCategoryPresenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
     var expectation: XCTestExpectation!
     var category: CategoryItem!
     var message: String!
+    var categories: [CategoryItem]!
 
     override func setUp() {
         super.setUp()
-        presenter.delegate = self
+        newCategoryPresenter.delegate = self
+        categoryPresenter.delegate = self
         expectation = XCTestExpectation(description: "Performance presenter")
         category = CategoryItem.newCategory(name: "Test")
         message = ""
+        categories = [CategoryItem]()
     }
     
     override func tearDown() {
         expectation = nil
         category = nil
         message = nil
+        categories = nil
+        PersistenceManager.deleteAllItems()
         super.tearDown()
     }
 
     func testAddCategory() {
-        presenter.addCategory(category)
+        newCategoryPresenter.addCategory(category)
         wait(for: [expectation], timeout: 10.0)
         XCTAssertEqual(message, "Category succsessfully added")
     }
 
+    func testDeleteItem() {
+        newCategoryPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
+        newCategoryPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
+        categoryPresenter.getCategories()
+        let lastItem = categories.last
+        let totalItems = categories.count
+        newCategoryPresenter.deleteCategory(lastItem!)
+        wait(for: [expectation], timeout: 10.0)
+        categoryPresenter.getCategories()
+        XCTAssertEqual(categories.count, totalItems-1)
+    }
+
+
     func testUpdateCategoryName() {
-        presenter.updateCategoryName(name: "Test 2", category: category)
+        newCategoryPresenter.updateCategoryName(name: "Test 2", category: category)
         wait(for: [expectation], timeout: 10.0)
         XCTAssertEqual(message, "Category updated")
     }
@@ -49,5 +69,9 @@ class SPNewCategoryPresenterTests: XCTestCase, SPNewCategoryPresenterProtocol {
 
     func showError(_ message: String) {
         expectation.fulfill()
+    }
+
+    func show(categories: [CategoryItem]) {
+        self.categories = categories
     }
 }

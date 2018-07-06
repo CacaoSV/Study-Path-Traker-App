@@ -11,45 +11,31 @@ import XCTest
 
 class SPCategoryPresenterTests: XCTestCase, SPCategoryPresenterProtocol {
 
-    var presenter: SPCategoryPresenter = SPCategoryPresenter()
-    var newPresenter: SPNewCategoryPresenter = SPNewCategoryPresenter()
-
+    var categoryPresenter: SPCategoryPresenter = SPCategoryPresenter()
     var expectation: XCTestExpectation!
     var categories: [CategoryItem]!
 
     override func setUp() {
         super.setUp()
         expectation = XCTestExpectation(description: "Performance presenter")
-        presenter.delegate = self
+        categoryPresenter.delegate = self
         categories = [CategoryItem]()
-        presenter.getCategories()
+        categoryPresenter.getCategories()
     }
     
     override func tearDown() {
-        presenter.delegate = nil
+        categoryPresenter.delegate = nil
         expectation = nil
         categories = nil
         super.tearDown()
     }
 
     func testGetCategories() {
-        presenter.getCategories()
+        categoryPresenter.getCategories()
         wait(for: [expectation], timeout: 10.0)
         XCTAssertNotNil(categories)
     }
-
-    func testDeleteItem() {
-        newPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
-        newPresenter.addCategory(CategoryItem.newCategory(name: "Test"))
-        presenter.getCategories()
-        let lastItem = categories.last
-        let totalItems = categories.count
-        presenter.deleteCategory(lastItem!)
-        wait(for: [expectation], timeout: 10.0)
-        presenter.getCategories()
-        XCTAssertEqual(categories.count, totalItems-1)
-    }
-
+    
     func didSuccessAction(_ message: String) {
         expectation.fulfill()
     }

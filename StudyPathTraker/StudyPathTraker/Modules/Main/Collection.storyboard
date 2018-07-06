@@ -46,6 +46,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cj7-cO-Ic1" customClass="SPRoundedButton" customModule="StudyPathTraker" customModuleProvider="target">
+                                                    <rect key="frame" x="98" y="7" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="444-Jx-Obu"/>
+                                                        <constraint firstAttribute="height" constant="35" id="XR5-v1-CxU"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_edit">
+                                                        <attributedString key="attributedTitle"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorButton">
+                                                            <color key="value" red="0.95294117647058818" green="0.61176470588235299" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,7 +71,9 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="DJR-GV-nBS" secondAttribute="bottom" constant="10" id="RsA-Gz-fBj"/>
                                             <constraint firstItem="BB1-vx-uRp" firstAttribute="centerY" secondItem="Iyf-6m-SWk" secondAttribute="centerY" id="WXk-pd-QLa"/>
                                             <constraint firstItem="DJR-GV-nBS" firstAttribute="leading" secondItem="Iyf-6m-SWk" secondAttribute="leadingMargin" constant="12" id="YY7-BT-lrW"/>
+                                            <constraint firstItem="Cj7-cO-Ic1" firstAttribute="top" secondItem="Iyf-6m-SWk" secondAttribute="top" constant="7" id="jfb-O0-sS5"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="BB1-vx-uRp" secondAttribute="trailing" constant="8" id="kbh-mX-S0V"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cj7-cO-Ic1" secondAttribute="trailing" constant="7" id="xK9-lD-OHJ"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -64,6 +81,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="editButton" destination="Cj7-cO-Ic1" id="9gF-Sy-w9j"/>
                                             <outlet property="nameLabel" destination="BB1-vx-uRp" id="bQO-0F-4SD"/>
                                             <outlet property="totalProgressView" destination="DJR-GV-nBS" id="nxy-5x-KFD"/>
                                         </connections>
@@ -109,7 +127,7 @@
         <!--New Category View Controller-->
         <scene sceneID="CEZ-HK-NcJ">
             <objects>
-                <viewController id="fyt-vc-CM1" customClass="SPNewCategoryViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPNewCategoryViewController" id="fyt-vc-CM1" customClass="SPNewCategoryViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G1g-mx-hl2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,16 +159,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSQ-LA-Ncb" customClass="SPRoundedButton" customModule="StudyPathTraker" customModuleProvider="target">
+                                <rect key="frame" x="40" y="713" width="295" height="45"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.18431372549019609" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="DELETE"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorButton">
+                                        <color key="value" red="0.92156862745098034" green="0.18431372549019609" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedDeleteButton:" destination="fyt-vc-CM1" eventType="touchUpInside" id="0eL-hI-sAQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="uSQ-LA-Ncb" firstAttribute="width" secondItem="w6a-bh-iwH" secondAttribute="width" id="2Ff-Qs-hsU"/>
+                            <constraint firstItem="uSQ-LA-Ncb" firstAttribute="centerX" secondItem="G1g-mx-hl2" secondAttribute="centerX" id="3UE-2L-wU4"/>
                             <constraint firstItem="w6a-bh-iwH" firstAttribute="leading" secondItem="Afd-Il-RHc" secondAttribute="leading" constant="40" id="6Sw-i4-dLz"/>
                             <constraint firstItem="a6I-qi-OTN" firstAttribute="top" secondItem="bdO-ej-MO2" secondAttribute="bottom" constant="8" id="7fo-ky-ztc"/>
                             <constraint firstItem="Afd-Il-RHc" firstAttribute="trailing" secondItem="a6I-qi-OTN" secondAttribute="trailing" constant="40" id="BnT-oH-cLf"/>
                             <constraint firstItem="bdO-ej-MO2" firstAttribute="centerX" secondItem="G1g-mx-hl2" secondAttribute="centerX" id="KqN-bT-mf9"/>
+                            <constraint firstItem="uSQ-LA-Ncb" firstAttribute="height" secondItem="w6a-bh-iwH" secondAttribute="height" id="P5b-aA-b6t"/>
                             <constraint firstItem="a6I-qi-OTN" firstAttribute="leading" secondItem="Afd-Il-RHc" secondAttribute="leading" constant="40" id="Sa1-FX-gUx"/>
                             <constraint firstItem="w6a-bh-iwH" firstAttribute="centerX" secondItem="G1g-mx-hl2" secondAttribute="centerX" id="dE7-pZ-wz5"/>
                             <constraint firstItem="w6a-bh-iwH" firstAttribute="top" secondItem="a6I-qi-OTN" secondAttribute="bottom" constant="8" id="ev3-oA-ON8"/>
+                            <constraint firstItem="Afd-Il-RHc" firstAttribute="bottom" secondItem="uSQ-LA-Ncb" secondAttribute="bottom" constant="20" id="feZ-K7-kCP"/>
                             <constraint firstItem="a6I-qi-OTN" firstAttribute="centerX" secondItem="G1g-mx-hl2" secondAttribute="centerX" id="lEZ-Mn-cHN"/>
                             <constraint firstItem="Afd-Il-RHc" firstAttribute="trailing" secondItem="w6a-bh-iwH" secondAttribute="trailing" constant="40" id="m4W-5Q-GF6"/>
                             <constraint firstItem="w6a-bh-iwH" firstAttribute="centerY" secondItem="G1g-mx-hl2" secondAttribute="centerY" id="rk9-Lm-mtR"/>
@@ -159,6 +195,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="w6a-bh-iwH" id="SCk-0f-oOy"/>
+                        <outlet property="deleteButton" destination="uSQ-LA-Ncb" id="Smj-QE-rib"/>
                         <outlet property="nameCategoryTextField" destination="a6I-qi-OTN" id="9JZ-FF-jI5"/>
                     </connections>
                 </viewController>
@@ -169,7 +206,7 @@
         <!--Items View Controller-->
         <scene sceneID="ENQ-i1-hQ1">
             <objects>
-                <viewController id="XnF-rI-FDD" customClass="SPItemsViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPItemsViewController" id="XnF-rI-FDD" customClass="SPItemsViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98T-F1-UPT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,12 +235,29 @@
                                                             <rect key="frame" x="8" y="96" width="289" height="2"/>
                                                             <color key="progressTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </progressView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5k-kg-4Yz" customClass="SPRoundedButton" customModule="StudyPathTraker" customModuleProvider="target">
+                                                            <rect key="frame" x="262" y="8" width="35" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="NoB-6e-9el"/>
+                                                                <constraint firstAttribute="width" constant="35" id="SBw-jD-Bkr"/>
+                                                            </constraints>
+                                                            <state key="normal" image="ic_edit">
+                                                                <attributedString key="attributedTitle"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorButton">
+                                                                    <color key="value" red="0.95294117649999999" green="0.61176470589999998" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="DQj-od-zUm" secondAttribute="trailing" constant="8" id="0ut-TW-hig"/>
                                                         <constraint firstAttribute="trailing" secondItem="OyB-9p-esP" secondAttribute="trailing" constant="8" id="2in-zx-ONN"/>
                                                         <constraint firstItem="DQj-od-zUm" firstAttribute="centerX" secondItem="jQ2-9i-thr" secondAttribute="centerX" id="JlX-LJ-7hk"/>
+                                                        <constraint firstItem="s5k-kg-4Yz" firstAttribute="top" secondItem="jQ2-9i-thr" secondAttribute="top" constant="8" id="K7X-N4-5hm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="s5k-kg-4Yz" secondAttribute="trailing" constant="8" id="KIU-aQ-JfN"/>
                                                         <constraint firstAttribute="bottom" secondItem="OyB-9p-esP" secondAttribute="bottom" constant="10" id="QBf-Ee-fVh"/>
                                                         <constraint firstItem="OyB-9p-esP" firstAttribute="leading" secondItem="jQ2-9i-thr" secondAttribute="leading" constant="8" id="Vcc-2W-qSn"/>
                                                         <constraint firstItem="DQj-od-zUm" firstAttribute="centerY" secondItem="jQ2-9i-thr" secondAttribute="centerY" id="ddn-k4-VIS"/>
@@ -225,6 +279,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="editButton" destination="s5k-kg-4Yz" id="QfC-ne-3eI"/>
                                             <outlet property="nameLabel" destination="DQj-od-zUm" id="v0V-as-s3G"/>
                                             <outlet property="totalProgressView" destination="OyB-9p-esP" id="cGD-0J-31y"/>
                                         </connections>
@@ -274,7 +329,7 @@
         <!--Detail View Controller-->
         <scene sceneID="7tR-1y-MaW">
             <objects>
-                <viewController id="No5-MP-dGH" customClass="SPDetailViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPDetailViewController" id="No5-MP-dGH" customClass="SPDetailViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdC-ML-WwQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,21 +342,27 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7n-kv-qC4">
-                                <rect key="frame" x="282" y="725" width="85" height="45"/>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7n-kv-qC4" customClass="SPRoundedButton" customModule="StudyPathTraker" customModuleProvider="target">
+                                <rect key="frame" x="267" y="725" width="100" height="45"/>
+                                <color key="backgroundColor" red="0.34005193449999999" green="0.36961670930000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="90T-nJ-JWF"/>
                                     <constraint firstAttribute="height" constant="45" id="kxk-mf-x8r"/>
                                 </constraints>
                                 <state key="normal" title="CHECK LIST">
-                                    <color key="titleColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorButton">
+                                        <color key="value" red="0.34005193449999999" green="0.36961670930000001" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addNewCheckListItem:" destination="No5-MP-dGH" eventType="touchUpInside" id="Ahf-VH-OX2"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-Y0-b9J">
-                                <rect key="frame" x="24" y="746" width="250" height="2"/>
+                                <rect key="frame" x="24" y="746" width="235" height="2"/>
                                 <color key="tintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="progressTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
@@ -341,7 +402,7 @@
         <!--Check List View Controller-->
         <scene sceneID="4Eq-T8-n6q">
             <objects>
-                <viewController id="B9Z-6r-USd" customClass="SPCheckListViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SPCheckListViewController" id="B9Z-6r-USd" customClass="SPCheckListViewController" customModule="StudyPathTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvT-Cs-mJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +419,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avF-4A-U9e" customClass="SPRoundedView" customModule="StudyPathTraker" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="7.9999999999999964" width="359" height="53.666666666666657"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="54"/>
                                                     <subviews>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-Lu-H02">
                                                             <rect key="frame" x="8" y="11" width="51" height="31"/>
@@ -366,7 +427,7 @@
                                                             <color key="onTintColor" red="0.3411764706" green="0.36862745099999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read the full article" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgJ-ty-6mr">
-                                                            <rect key="frame" x="65" y="17.333333333333336" width="286" height="19.333333333333336"/>
+                                                            <rect key="frame" x="65" y="17" width="286" height="19.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -375,10 +436,10 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Ute-Lu-H02" firstAttribute="centerY" secondItem="avF-4A-U9e" secondAttribute="centerY" id="2Cg-qT-lqd"/>
-                                                        <constraint firstItem="MgJ-ty-6mr" firstAttribute="centerY" secondItem="avF-4A-U9e" secondAttribute="centerY" id="7Gj-Qd-sAD"/>
-                                                        <constraint firstAttribute="trailing" secondItem="MgJ-ty-6mr" secondAttribute="trailing" constant="8" id="m0g-n1-t5M"/>
+                                                        <constraint firstItem="MgJ-ty-6mr" firstAttribute="leading" secondItem="Ute-Lu-H02" secondAttribute="trailing" constant="8" id="EUN-vn-dVn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="MgJ-ty-6mr" secondAttribute="trailing" constant="8" id="Olw-o2-Zsd"/>
+                                                        <constraint firstItem="MgJ-ty-6mr" firstAttribute="centerY" secondItem="avF-4A-U9e" secondAttribute="centerY" id="auu-97-FYK"/>
                                                         <constraint firstItem="Ute-Lu-H02" firstAttribute="leading" secondItem="avF-4A-U9e" secondAttribute="leading" constant="8" id="rpn-1K-VV7"/>
-                                                        <constraint firstItem="MgJ-ty-6mr" firstAttribute="leading" secondItem="Ute-Lu-H02" secondAttribute="trailing" constant="8" id="uIn-ze-QoX"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -578,4 +639,7 @@
             <point key="canvasLocation" x="2462" y="972"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_edit" width="24" height="24"/>
+    </resources>
 </document>

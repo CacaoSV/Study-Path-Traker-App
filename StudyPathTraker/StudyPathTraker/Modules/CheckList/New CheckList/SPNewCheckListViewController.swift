@@ -8,31 +8,26 @@
 
 import UIKit
 
-protocol SPCheckListDelegate: class {
-    func didAddNewMilestone(name: String)
-    func didEditMilestone(name: String, milestone: Milestone)
-}
-
 class SPNewCheckListViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var nameMilestoneTextField: UITextField!
-    @IBOutlet private weak var addNewButton: SPRoundedButton!
+    @IBOutlet weak var nameMilestoneTextField: UITextField!
+    @IBOutlet weak var addNewButton: SPRoundedButton!
 
     // MARK: - Properties
 
     var milestone: Milestone?
     var item: Item?
     var isToEdit = false
-    var presenter: SPNewCheckListPresenter = SPNewCheckListPresenter()
+    var newCheckListPresenter: SPNewCheckListPresenter = SPNewCheckListPresenter()
 
     // MARK: - View Controller LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add New Milestone"
-        presenter.delegate = self
+        newCheckListPresenter.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,17 +37,17 @@ class SPNewCheckListViewController: UIViewController {
         }
     }
 
-    private func configureViewForEdit() {
+    func configureViewForEdit() {
         title = "Edit Milestone"
         nameMilestoneTextField.text = milestone?.name
-        addNewButton.setTitle("Edit", for: .normal)
+        addNewButton.setTitle("EDIT", for: .normal)
     }
 
     @IBAction private func tappedAddButton(_ sender: Any) {
         handleActionForMilestone(name: nameMilestoneTextField.text ?? "")
     }
 
-    private func handleActionForMilestone(name: String) {
+    func handleActionForMilestone(name: String) {
         if !name.isEmpty {
             if isToEdit {
                 editMilestone(name: name)
@@ -61,21 +56,21 @@ class SPNewCheckListViewController: UIViewController {
             }
         } else {
             showMessage("Name is a required field", title: "😅")
-
         }
     }
+    
     private func createMilestone(name: String) {
         guard let currentItem = item else {
             return
         }
-        presenter.addMilestone(Milestone.newMilestone(name: name), item: currentItem)
+        newCheckListPresenter.addMilestone(Milestone.newMilestone(name: name), item: currentItem)
     }
 
     private func editMilestone(name: String) {
         guard let currentMilestone = milestone else {
             return
         }
-        presenter.updateMilestone(currentMilestone, name: name)
+        newCheckListPresenter.updateMilestone(currentMilestone, name: name)
     }
 
 }

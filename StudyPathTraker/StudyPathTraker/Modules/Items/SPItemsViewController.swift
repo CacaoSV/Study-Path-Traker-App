@@ -12,7 +12,7 @@ class SPItemsViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private var itemsTableViewDelegate: SPCommonTableViewDelegate! {
         didSet {
             itemsTableViewDelegate.selectedIndex = { [weak self] index in
@@ -24,9 +24,9 @@ class SPItemsViewController: UIViewController {
     
     // MARK: - Properties
 
-    private var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
+    var dataSource: SPCommonTableViewDataSource<Item, SPItemTableViewCell>?
     private var refreshControl = UIRefreshControl()
-    private var items: [Item]? {
+    var items: [Item]? {
         didSet {
             if let settedItems = items {
                 setItems(settedItems)
@@ -36,7 +36,7 @@ class SPItemsViewController: UIViewController {
     private let cellConfiguration = SPCommonCellConfiguration(identifier: "ItemCellIdentifier", height: 130.0)
     private var selectedItem: Item?
     var category: CategoryItem?
-    var presenter: SPItemPresenter = SPItemPresenter()
+    var itemPresenter: SPItemPresenter = SPItemPresenter()
 
     // MARK: - View Configuration
 
@@ -44,10 +44,8 @@ class SPItemsViewController: UIViewController {
         super.viewDidLoad()
         title = "Readings"
         view.backgroundColor = .mainBackground
-        presenter.delegate = self
+        itemPresenter.delegate = self
         configureTableView()
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(updateItem(longPressGestureRecognizer:)))
-        self.view.addGestureRecognizer(longPressRecognizer)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +53,7 @@ class SPItemsViewController: UIViewController {
         getItems()
         selectedItem = nil
     }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,31 +83,31 @@ class SPItemsViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
 
-    @objc func updateItem(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == .began {
-            let touchPoint = longPressGestureRecognizer.location(in: view)
-            if let indexPath = tableView.indexPathForRow(at: touchPoint), let currentItems = items {
-                selectedItem = currentItems[indexPath.row]
-                performSegue(withIdentifier: Segues.ItemsSegues.showAddItem.rawValue, sender: nil)
-            }
-        }
-    }
-
-    private func setItems(_ items: [Item]) {
+    func setItems(_ items: [Item]) {
         dataSource = SPCommonTableViewDataSource<Item, SPItemTableViewCell>(data: items, reuseIdentifier: cellConfiguration.identifier, deleteAllowed: true, deleteBlock: { [weak self] indexPath in
             let item = items[indexPath.row]
-            self?.presenter.deleteItem(item: item)
-        }, configurationBlock: { cell, item, _ in
+            self?.itemPresenter.deleteItem(item: item)
+        }, configurationBlock: { [weak self] cell, item, indexPath in
             cell.binding(item: item)
+            cell.editButton.tag = indexPath.row
+            cell.editButton.addTarget(self, action: #selector(self?.tappedEditButton(sender:)), for: .touchUpInside)
         })
         tableView.dataSource = dataSource
         refreshControl.endRefreshing()
     }
 
+    @objc private func tappedEditButton(sender: SPRoundedButton) {
+        guard let currentItems = items else {
+            return
+        }
+        selectedItem = currentItems[sender.tag]
+        performSegue(withIdentifier: Segues.ItemsSegues.showAddItem.rawValue, sender: nil)
+    }
+
     @objc private func getItems() {
         refreshControl.beginRefreshing()
         if let categoryUID = category?.uid {
-            presenter.getItems(categoryUID: categoryUID)
+            itemPresenter.getItems(categoryUID: categoryUID)
         }
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SPCheckListPresenterProtocol: SPBasePresenterProtocol {
-    var presenter: SPCheckListPresenter { get }
+    var checkListPresenter: SPCheckListPresenter { get }
 
     func show(milestones: [Milestone])
 }
